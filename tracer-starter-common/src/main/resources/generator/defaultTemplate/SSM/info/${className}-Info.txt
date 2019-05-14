@@ -1,0 +1,15 @@
+${data.className}DTO{
+@for(c in data.columns){
+    ${c.property}：${c.columnComment}
+@}
+}
+
+ColumnPropertyMapping：${data.tableInfo.table}{
+@for(c in data.columns){
+    @if(cLP.last){
+	`${c.column}` AS `${c.property}`
+	@} else {
+	`${c.column}` AS `${c.property}`,
+	@}
+@}
+}

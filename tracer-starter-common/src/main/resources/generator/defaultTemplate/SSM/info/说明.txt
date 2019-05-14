@@ -1,0 +1,2 @@
+文件使用AutoGeneratorCode的SSM模板生成，代码结构基于Spring+SpringMVC+MyBatis架构。
+AutoGeneratorCode使用文档请看：http://autogeneratorcode.mydoc.io/
