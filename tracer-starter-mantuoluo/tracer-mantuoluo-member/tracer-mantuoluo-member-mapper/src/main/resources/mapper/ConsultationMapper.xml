@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ow.tracer.mantuoluo.member.dsm.mapper.ConsultationMapper">
+
+    <!-- 字段与Model映射 -->
+
+
+    <sql id="Base_Column_List">
+		'id',
+		'birth_day',
+		'birth_num',
+		'member_id',
+		'tutor_id',
+				'name',
+						'creat_time',
+						'sex',
+						'zinv',
+						'xingbie',
+						'image',
+	'del_flag',
+      'create_date',
+      'create_by',
+      'update_by',
+      'update_date',
+       'version_number',
+       'enabled'
+	</sql>
+
+	<!--<select id="selectByIdTest"  resultType="com.ow.tracer.mantuoluo.member.dsm.dto.Consultation" parameterType="string">
+			select birth_day, birth_num from consultation where id = #{id}
+	</select>-->
+
+</mapper>

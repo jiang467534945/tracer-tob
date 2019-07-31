@@ -1,0 +1,452 @@
+.header{
+    background: #fff;
+    border-bottom: 1px solid #e4e4e4;
+    width: 100%;
+    position: fixed;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(29,32,35,1);
+    height: 0.88rem;
+    top: 0px;
+    z-index: 98;
+    max-width: 7.5rem;
+    max-height: 0.88rem;
+}
+select::-ms-expand { display: none; }
+.xuanze{
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    box-sizing:border-box;
+    background:none;
+    border:none;
+    outline:none;
+    font-size:0.34rem;
+    position:relative;
+    z-index:3;
+    text-align: center;
+}
+
+option::-ms-expand{ display: none; }
+option{
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari 和 Chrome */
+    appearance:none;
+}
+.header ul{
+    display: none;
+}
+.result_menu{
+    background: #fff;
+    border-bottom: 1px solid #e4e4e4;
+    display: inline-block;
+    width: 100%;
+    float: left;
+    position: fixed;
+    top: 0.85rem;
+    z-index: 97;
+    max-width: 7.5rem;
+}
+.pb1 {
+    font-size: 0.32rem;
+
+    font-family: SourceHanSansCN-Regular;
+}
+.pb2 {
+    font-size: 0.32rem;
+
+    font-family: SourceHanSansCN-Regular;
+}
+.pb3 {
+    font-size: 0.32rem;
+
+    font-family: SourceHanSansCN-Regular;
+}
+.pb4 {
+    font-size: 0.32rem;
+    font-family: SourceHanSansCN-Regular;
+}
+.pay_block {
+    font-size: 0.32rem;
+    display: inline-block;
+    text-align: center;
+
+}
+.pay_select {
+    display: inline-block;
+    border-bottom: none;
+    text-align: center;
+    font-family:SourceHanSansCN-Bold;
+    font-weight:bold;
+    color:rgba(238,63,77,1);
+}
+.pay_block span {
+    display: block;
+    border-bottom: 3px transparent solid;
+}
+.pay_block .red_line {
+    display: block;
+    border-bottom: 3px rgba(238,63,77,1) solid;
+}
+.shu{
+    display: block;
+    float: left;
+    width: 23%;
+    text-align: center;
+    margin: 0.15rem 0.0rem;
+    line-height: 0.6rem;
+
+    box-sizing: border-box;
+}
+.shu+.shu{
+    border-left: 1px solid #999999;
+}
+
+
+.bian{
+    height: 0.6rem;
+    margin-top: 0.2rem;
+    border-left: 1px solid #999999;
+    float: left;
+}
+#mask{
+    position: fixed;
+    width: 100%;
+    bottom: 1rem;
+    z-index: 99;
+    background-color: rgba(1,1,1,0.6);
+    top: 0px;
+    max-width: 640px;
+    height: 100vh;
+}
+.anniu{
+     padding-top: 0.35rem;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    z-index: 100;
+    position: fixed;
+
+}
+.header li a{
+    font-size: 0.34rem;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: 400;
+    color: rgba(29,32,35,1);
+    border-radius: 0.1rem;
+    background-color: #ffffff;
+    line-height: 0.5rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    margin-top: 0.1rem;
+}
+.order_name{
+    border-radius: 0.1rem;
+    background-color: #ffffff;
+    line-height: 0.5rem;
+    margin-top: 0.1rem;
+    padding: 0.2rem 0.2rem;
+}
+.zhidao{
+
+    z-index: 100;
+    position: fixed;
+    margin: 2.2rem auto;
+    right:0;
+    top:0;
+    left: 0;
+    bottom:0;
+    width:4.6rem;
+    height:1.3rem;
+    background:rgba(0,0,0,0.2);
+    border:2px dotted rgba(255,255,255,1);
+    border-radius:8px;
+    text-align: center;
+}
+.zhidao p{
+    font-size:0.28rem;
+    line-height: 0.5rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    text-align: center;
+    padding-top: 0.2rem;
+}
+.zhidao span{
+    font-size:0.28rem;
+    line-height: 0.5rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+
+}
+
+.next{
+    background-image: url("../images/qinqingfu/next.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs/images/qinqingfu/next.png*/;
+    background-size: 2.62rem 1.14rem;
+    background-repeat: no-repeat;
+    background-position: center top;
+    right:0;
+    top:6.1rem;
+    left: 0;
+    bottom:0;
+    z-index: 100;
+    position: fixed;
+    text-align: center;
+
+}
+.next p{
+    font-size:0.34rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    padding-top: 0.28rem;
+    padding-left: 0.2rem;
+}
+.menu_fixted{
+    z-index: 100;
+    position: absolute;
+    background:#fff;
+    text-align: center;
+
+}
+
+.zhidao1{
+    display: none;
+    z-index: 100;
+    position: fixed;
+    margin: 3.5rem auto;
+    right:0;
+    top:0;
+    left: 0;
+    bottom:0;
+    width:4.6rem;
+    height:1.3rem;
+    background:rgba(0,0,0,0.2);
+    border:2px dotted rgba(255,255,255,1);
+    border-radius:8px;
+    text-align: center;
+}
+.zhidao1 p{
+    font-size:0.28rem;
+    line-height: 0.5rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    text-align: center;
+    padding-top: 0.2rem;
+}
+.zhidao1 span{
+    font-size:0.28rem;
+    line-height: 0.5rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+
+}
+.know{
+    display: none;
+    background-image: url("../images/qinqingfu/next.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs/images/qinqingfu/next.png*/;
+    background-size: 2.62rem 1.14rem;
+    background-repeat: no-repeat;
+    background-position: center top;
+    right:0;
+    top:6.1rem;
+    left: 0;
+    bottom:0;
+    z-index: 100;
+    position: fixed;
+    text-align: center;
+}
+.know p{
+    font-size:0.34rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    padding-top: 0.28rem;
+    padding-left: 0.3rem;
+}
+.jian{
+    padding: 0.4rem 0rem 0.1rem 0rem;
+    width: 50%;
+}
+.zhiyin{
+    z-index: 100;
+    position: fixed;
+    margin:1.2rem auto;
+    right:0;
+    top:0;
+    left: 0;
+    bottom:0;
+    width:4.6rem;
+    height:1.3rem;
+    text-align: center;
+}
+.fanjian{
+     padding-left: 0.1rem;
+    width: 0.3rem;
+}
+.zhiyin1{
+   display: none;
+    z-index: 100;
+    position: fixed;
+    margin:2.5rem auto;
+    right:0;
+    top:0;
+    left: 0;
+    bottom:0;
+    width:4.6rem;
+    height:1.3rem;
+    text-align: center;
+}
+.xuan{
+    height: 1.2rem;
+}
+.layui-form-select .layui-input{
+    font-size:0.34rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(29,32,35,1);
+    line-height:50px;
+    text-align: center;
+    border: none;
+    height: 0.8rem;
+}
+.layui-edge{
+    border: none !important;
+    background-image: url("../images/qinqingfu/jian.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs/images/qinqingfu/jian.png*/;
+    background-size: 100%;
+    width: 0.24rem;
+    height: 0.14rem;
+    margin-right:35%;
+    background-repeat: no-repeat;
+}
+.layui-form-selected .layui-edge{
+    margin-top: 0;
+}
+
+.layui-form-select dl{
+    border: none;
+    width: 2.2rem;
+    min-width: 2rem;
+    left: 40%;
+    position: absolute;
+}
+.histoy{
+    position: relative;
+    margin-bottom: 0px;
+    background-color: #f6efdc;
+}
+.result_menu2{
+    background: #fff;
+    border-bottom: 1px solid #e4e4e4;
+    width: 7.5rem;
+    float: left;
+}
+.menu_btn{
+    display: block;
+    float: left;
+    height: 1rem;
+}
+.user_select {
+    border-radius: 0.1rem;
+    background-color: #ffffff;
+    line-height: 0.5rem;
+    margin-top: 0.1rem;
+    padding: 0.2rem 0.2rem;
+}
+.layui-form-select dl dd.layui-this{
+    background: none;
+    color: #000;
+    font-size: 0.34rem;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: 400;
+    color: rgba(29,32,35,1);
+}
+.layui-form-select dl dd:hover{
+    color: red;
+
+}
+.zhegai{
+    display: none;
+    position: fixed;
+    width: 100%;
+    bottom: 1rem;
+    z-index: 99;
+    background-color: rgba(1,1,1,0.6);
+    max-width: 640px;
+    height: 100vh;
+}
+.layui-form-select dl dd.layui-this{
+    color: red;
+}
+.header_fankui {
+    position: absolute;
+    height: 25px;
+    line-height: 25px;
+    border: 1px solid #EE3F4D;
+    border-radius: 5px;
+    padding: 0 0.1rem;
+    display: block;
+    color: #EE3F4D;
+    right: 80px;
+    top: 9px;
+}
+.layui-form-select dl dd {
+    font-size: 0.34rem;
+    cursor: pointer;
+}
+.page_banner {
+    margin-top: 1.9rem;
+}
+.header_show {
+    position: fixed;
+    z-index: 99;
+    background: #fff;
+}
+.header_home, .header_fankui, .header_menu{
+    z-index: 1;
+}
+
+.header2{
+    position: absolute;
+    z-index: 101;
+    text-align: center;
+    width: 2.5rem;
+    margin-left: 2.5rem;
+    top: 0.1rem;
+    background:#fff;
+    border-radius: 0.1rem;
+    height: 0.6rem;
+    line-height: 0.5rem;
+}
+.header2 .layui-input{
+    height: 0.5rem;
+}
+.header2 .layui-edge{
+    margin-right: 0;
+}
+.header2 .layui-form{
+    height: 0.8rem;
+}
+
+.disable {
+    pointer-events: none;
+}
+.user_one_1 {
+    font-family: SourceHanSansCN-Regular;
+    font-weight: 400;
+    color: rgba(29,32,35,1);
+    font-size: 0.34rem;
+    text-align: center;
+    display: block;
+    line-height: 0.88rem;
+}
+.user_one_2{
+    font-family: SourceHanSansCN-Regular;
+    font-weight: 400;
+    color: rgba(29,32,35,1);
+    font-size: 0.34rem;
+}

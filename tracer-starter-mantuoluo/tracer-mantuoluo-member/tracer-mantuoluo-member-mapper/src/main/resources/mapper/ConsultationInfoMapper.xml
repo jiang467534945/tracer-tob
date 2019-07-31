@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ow.tracer.mantuoluo.member.dsm.mapper.ConsultationInfoMapper">
+
+    <!-- 字段与Model映射 -->
+
+
+    <sql id="Base_Column_List">
+		id,
+		ctype,
+		member_name,
+		member_phone,
+		member_sex,
+		marriage,
+		child_num,
+		context,
+		con_id,
+
+				'birth_day',
+		'birth_num',
+		'member_id',
+		'tutor_id',
+	</sql>
+
+   <!-- <insert id="insert" parameterMap="com.ow.tracer.mantuoluo.member.dsm.dto.Consultation">
+        insert into consultation (<include refid="Base_Column_List"/>)
+        value (#{id},#{type},#{memberName},#{memberPhone},#{memberSex},#{marriage},#{childNum},#{context},#{conId})
+    </insert>
+
+	<select id="selectByid" resultType="com.ow.tracer.mantuoluo.member.dsm.dto.Consultation" parameterType="string">
+		 select <include refid="Base_Column_List"/>
+        from consultation
+        where id = #{id}
+	</select>
+
+	<select id="list" resultType="com.ow.tracer.mantuoluo.member.dsm.dto.Consultation" >
+		select <include refid="Base_Column_List"/>
+		from consultation
+		where 1=1
+	</select>-->
+
+
+</mapper>

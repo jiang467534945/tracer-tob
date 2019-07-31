@@ -18,9 +18,9 @@ import java.util.regex.Pattern;
  */
 public class GeoUtils {
     public static void main(String[] args) {
-    String vuePath ="/run/media/easy/娱乐/WebstormProjects/Tracer-avue-mtl/src";
+    String vuePath ="/run/media/easy/娱乐/WebstormProjects/Tracer-avue-crowd-master/src";
     getTables(vuePath,"com.ow",
-             "member",
+             "admin_n",
              "mantuoluo",
              "member",
                 "tracer","mantuoluo",2

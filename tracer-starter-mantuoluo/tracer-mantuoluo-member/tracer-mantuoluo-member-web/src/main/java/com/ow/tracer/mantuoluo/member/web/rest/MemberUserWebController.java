@@ -3,7 +3,10 @@ package com.ow.tracer.mantuoluo.member.web.rest;
 import cn.hutool.Hutool;
 import cn.hutool.crypto.SecureUtil;
 import cn.hutool.crypto.symmetric.AES;
+import cn.hutool.http.HttpUtil;
+import com.ow.tracer.mantuoluo.member.dsm.dto.Consultation;
 import com.ow.tracer.mantuoluo.member.dsm.dto.MemberUser;
+import com.ow.tracer.mantuoluo.member.dsm.service.IConsultationService;
 import com.ow.tracer.mantuoluo.member.dsm.service.IMemberUserService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -19,8 +22,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import java.util.Date;
-import java.util.List;
+
+import java.util.*;
 
 /**
  * 类描述:     [控制器]
@@ -34,6 +37,8 @@ import java.util.List;
 public class MemberUserWebController extends BaseController {
     @Autowired
     private IMemberUserService memberUserService;
+    @Autowired
+    private IConsultationService iConsultationService;
     private Logger logger = LoggerFactory.getLogger(MemberUserWebController.class);
 
     /**
@@ -50,6 +55,7 @@ public class MemberUserWebController extends BaseController {
         IPage<MemberUser> memberUserIPage = memberUserService.page(page,null);
         return Results.successWithData(memberUserIPage , BaseEnums.SUCCESS.code(), BaseEnums.SUCCESS.desc());
     }
+
     /**
      * 添加{data.describe}
      *
@@ -59,12 +65,22 @@ public class MemberUserWebController extends BaseController {
 
     @PostMapping("/addWxUserinfo")
     public Result addWxUserinfo(@RequestBody WxObject wxObject ) {
-        System.out.println(wxObject.getIv());
-        System.out.println(wxObject.getWxUserInfo().getNickName());
-        System.out.println(wxObject.getOpenId());
+        MemberUser member = memberUserService.getOne(new QueryWrapper<MemberUser>().eq("open_id",wxObject.getOpenId()));
+        if(member!=null){
+            return Results.successWithData(member,"登录成功,历史用户");
+        }else{
+            MemberUser memberUser = new MemberUser();
+            memberUser.setAvatarUrl(wxObject.getWxUserInfo().getAvatarUrl());
+            memberUser.setGender(wxObject.getWxUserInfo().getGender());
+            memberUser.setNickName(wxObject.getWxUserInfo().getNickName());
+            memberUser.setOpenId(wxObject.getOpenId());
+            memberUser.setUserType(0);
+            boolean boo= memberUserService.save(memberUser);
+            return Results.successWithData(memberUser,"登录成功");
+        }
 
-        return null;
     }
+
         /**
     	 * 全部list
     	 * @return List实体集合
@@ -83,7 +99,10 @@ public class MemberUserWebController extends BaseController {
 
     @GetMapping("/{id}")
     public Result get(@PathVariable String id) {
-        System.out.println("123456");
+
+        Long random = UUID.randomUUID().getMostSignificantBits();
+        Long UID = Math.abs(random);
+        System.out.println(UID.toString());
         MemberUser memberUser = new MemberUser ();
         memberUser=memberUserService.getById(id);
         return Results.successWithData(memberUser, BaseEnums.SUCCESS.desc());

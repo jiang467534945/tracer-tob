@@ -1,0 +1,279 @@
+body {
+    background-color: #f6f3f0;
+}
+.red {
+    color: red;
+}
+.tac {
+    text-align: center;
+}
+
+.product {
+    padding: 10px;
+}
+.product .info {
+    padding: 10px;
+    background-color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.product .title {
+    margin-bottom: 10px;
+    padding: 5px 0;
+    color: #e28d54;
+    border-bottom: 1px solid #ccc;
+}
+.product .left {
+    width: 80px;
+}
+.product .left a,
+.product .left img {
+    display: block;
+    width: inherit;
+}
+.product .left p {
+    padding: 10px 0;
+    text-align: center;
+}
+.product .left p span {
+    font-weight: bold;
+}
+.product .right {
+    float: none;
+    padding-left: 90px;
+}
+.product .right .name a {
+    font-size: 20px;
+    color: #f44627;
+}
+.product .right .intro {
+    padding-top: 5px;
+    line-height: 22px;
+}
+.product .btn a{
+    display: block;
+    padding: 10px 0;
+    background-color: #e49d6d;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+}
+
+/* 订单查询页 */
+.his_bgcolor_box {
+    margin-bottom: 15px;
+    padding: 10px 0;
+    background-color: #fff;
+}
+.query_form {
+    padding: 0 10px;
+}
+.query_form .tip {
+    font-size: 14px;
+    color: #333;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+.query_form .input,
+.query_form .btn {
+    height: 35px;
+    line-height: 35px;
+    box-sizing: border-box;
+}
+.query_form .input {
+    padding-left: 5px;
+    float: left;
+    border: 1px solid #d7d7d7;
+    border-right: none;
+    width: 75%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.query_form .btn {
+    float: right;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 25%;
+    background-color: #e49d6d;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+}
+.faq {
+    padding: 5px;
+    font-size: 16px;
+}
+.faq a {
+    color: gray;
+}
+.faq_feedback {
+    margin-top: 10px;
+    overflow: hidden;
+}
+.faq_feedback li {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+}
+.faq_feedback a.feedback {
+    background-color: #d61f12;
+}
+.faq_feedback a {
+    border-radius: 5px;
+    margin: 0 5px;
+}
+.faq_feedback a {
+    display: block;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    color: #fff;
+}
+.faq_feedback a.goback {
+    background-color: #cdcdcd;
+}
+.history_order {
+    padding: 10px 10px 5px;
+}
+.box_title {
+    margin: 5px 0 15px;
+    height: 36px;
+    line-height: 36px;
+    background-color: #e4d6bc;
+    text-align: center;
+    color: #dd4333;
+    border-radius: 5px;
+}
+.order_list .order {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #e49d6d;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.order_list .order .item {
+    padding: 10px 10px 2px;
+    border-bottom: 1px solid #ddd;
+}
+.order_list .order .item .l {
+    display: inline-block;
+    width: 25%;
+    text-align: left;
+    font-weight: bold;
+}
+.order_list .order .item .r {
+    display: inline-block;
+    width: 72%;
+    text-align: right;
+}
+.order_list .order .item .status {
+    font-size: 16px;
+    font-weight: bold;
+}
+.order_list .order .item .no {
+    color: red;
+}
+.order_list .order .item .yes {
+    color: #0b6ccf;
+}
+.order_list .order .item .gray {
+    color: #ccc;
+}
+.page_btn_s a {
+    background-color: #e49d6d;
+}
+
+.bgcolor_box {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f6f3f0;
+}
+.faq_help .title,
+.faq_form .title {
+    font-size: 16px;
+    padding-bottom: 10px;
+    color: #e28d54;
+}
+.faq_form select {
+    display: none;
+}
+.faq_form .btn {
+    text-align: center;
+}
+.faq_form .btn button {
+    width: 35%;
+}
+.faq_form .btn button.goback {
+    background-color: #cdcdcd;
+}
+.faq_form .layui-form-label {
+    width: 95px;
+    padding: 9px 0;
+    text-align: center;
+}
+.faq_form .layui-input-block {
+    margin-left: 95px;
+}
+.faq_form .layui-input-inline {
+    margin-left: 0;
+}
+@media screen and (max-width: 450px) {
+    .layui-form-item .layui-input-inline {
+        margin: 0 0 10px 98px;
+    }
+}
+.faq_help .item {
+    padding: 15px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.faq_help .tit {
+    padding: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.faq_help .desc {
+    line-height: 24px;
+}
+.faq_help .desc p {
+    text-indent: 2em;
+}
+.faq_help .desc a {
+    color: red;
+}
+.layui-input-block textarea {
+    margin-left: 0;
+}
+.layui-btn {
+    width: 100%;
+    margin-bottom: 15px;
+    background-color: #e49d6d;
+    font-size: 18px;
+    border-radius: 5px;
+}
+.layui-form-select dl dd.layui-this {
+    background-color: #e49d6d;
+    color: #fff;
+}
+.layui-form-radio {
+    padding-right: 0;
+}
+.layui-form-radio i {
+    margin-right: 2px;
+    font-size: 16px;
+    color: #c2c2c2;
+}
+.layui-form-radio i:hover, .layui-form-radioed i {
+    color: #e49d6d;
+    font-size: 16px;
+}
+
+.page_footer {
+    margin-top: 10px;
+    background-color: #e49d6d;
+}
+

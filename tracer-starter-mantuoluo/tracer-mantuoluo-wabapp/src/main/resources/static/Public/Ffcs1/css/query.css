@@ -1,0 +1,194 @@
+body{
+    background:rgba(255,248,238,1);
+
+}
+
+::-webkit-input-placeholder {
+    color: #999999;
+}
+:-moz-placeholder {/* Firefox 18- */
+    color: #999999;
+}
+::-moz-placeholder{/* Firefox 19+ */
+    color: #999999;
+}
+:-ms-input-placeholder {
+    color: #999999;
+}
+.go_back{
+    position: absolute;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 0.1rem;
+    display: block;
+    color: #000;
+    left:0.1rem;
+    top: 9px;
+    font-size:0.28rem;
+}
+.red{
+    color: #F19149;
+}
+.query_form .tip{
+    font-size: 0.24rem;
+    color: #999999;
+    margin: 0.1rem 0 0.2rem 0;
+}
+.query_form .input{
+    background:rgba(255,255,255,1);
+    border:1px solid rgba(238,63,77,1);
+    border-radius:10px 0 0px 10px;
+    height: 0.88rem;
+    font-size: 0.32rem;
+    border-right: none;
+}
+.query_form .btn{
+    cursor: pointer;
+    background:rgba(238,63,77,1);
+    border:2px solid rgba(238,63,77,1);
+    border-radius:0px 10px 10px 0px;
+    height: 0.88rem;
+}
+.box_title{
+    font-size:0.32rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+    height: 0.3rem;
+    background: none;
+}
+.his_bgcolor_box{
+    margin-bottom: 0.5rem;
+    margin: 0;
+}
+.pay_select{
+    font-size:0.32rem !important;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(238,63,77,1);
+}
+.pay_title{
+    font-size:0.32rem !important;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+    margin-left: 0.2rem;
+}
+.pay_block{
+    padding-right: 0.2rem;
+    cursor: pointer;
+}
+
+.product-list{
+    background:rgba(255,255,255,1);
+    box-shadow:0px 0px 10px 0px rgba(212,55,68,0.1);
+    border-radius:20px;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+    margin-top: 0.1rem;
+}
+
+
+.cesuan_pay{
+    padding: 0.3rem 0 0 0;
+}
+.session-icon{
+    background-color: #EE3F4D;
+    width: 0.1rem;
+    height: 0.42rem;
+    margin-right: 0.1rem;
+    display: block;
+    float: left;
+}
+.history_info{
+    font-size:0.32rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+    line-height: 0.4rem;
+}
+.order_id{
+    font-size:0.2rem;
+    float: right;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+    line-height: 0.43rem;
+    margin-left: 0.1rem;
+    margin-right: 0.25rem;
+}
+.cesuan_product{
+    background:rgba(250,250,250,1);
+    border-radius:10px;
+    margin: 0.2rem;
+    margin-bottom: 0.3rem;
+}
+.cesuan_img{
+    width: 1rem;
+    height: 1rem;
+    margin: 0.2rem;
+}
+.product_name{
+    font-size:0.28rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+}
+.cesuan_history{
+    float: left;
+}
+.his_info{
+    height: 1.4rem;
+}
+.cesuan_info{
+    padding-top: 0.25rem;
+}
+.money{
+    font-size:0.28rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+    float: right;
+    padding-right: 0.2rem;
+}
+.zhuangtai{
+    font-size:0.28rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+    padding-top: 0.2rem;
+}
+.zhuangtai .status{
+    float: right;
+    font-size:0.28rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(238,63,77,1);
+    padding-right: 0.2rem;
+}
+.page_btn_s a{
+    background:rgba(238,63,77,1);
+    border:2px solid rgba(238,63,77,1);
+    border-radius:10px;
+    height: 0.8rem;
+    line-height: 0.8rem;
+}
+.page_btn_s{
+    margin: 0rem 0.2rem 0.5rem 0.2rem;
+    padding: 0 0 0.5rem 0;
+}
+.delete{
+    background-image: url("img/delete.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs/css/img/delete.png*/;
+    background-size: 100%;
+    width: 0.26rem;
+    height: 0.26rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: absolute;
+    left: 4.8rem;
+    top: 0.33rem;
+}
+.swiper-container{
+    margin-bottom: 0.2rem!important;
+    padding-bottom: 0.2rem!important;
+}

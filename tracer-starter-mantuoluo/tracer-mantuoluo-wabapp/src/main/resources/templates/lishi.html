@@ -1,0 +1,980 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset=utf-8"UTF-8"/>
+    <title>历史订单</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <link href="../static/Public/Ffcs1/layui/css/layui.css" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/layui/css/layui.css" rel="stylesheet" type="text/css"/>
+    <link href="../static/Public/Ffcs1/css/base.css" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/css/base.css" rel="stylesheet" type="text/css"/>
+    <link href="../static/Public/Ffcs1/css/public.css" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/css/public.css" rel="stylesheet" type="text/css"/>
+    <link href="../static/Public/Ffcs1/css/query.css" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/css/query.css" rel="stylesheet" type="text/css"/>
+    <script src="../static/Public/Ffcs1/js/fit_mobile_750.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/js/fit_mobile_750.js"></script>
+    <style>
+        /*查询页面*/
+        .pay-btn{
+            outline: unset;
+        }
+        .pay_title{
+            font-size: 16px;
+            width:100%;
+            margin: 10px auto;
+        }
+        .pay_select{
+            font-size: 18px;
+            color: #FF4B4B;
+            display: inline-block;
+            text-align: center;
+        }
+        .red_line{
+            display: block;
+            width:20px;
+            height: 4px;
+            background-color: #FF4B4B;
+            margin: 0 auto;
+        }
+        /* .swiper-container {
+             width: 100%;
+             height: 100%;
+         }
+         .swiper-slide {
+             text-align: center;
+             font-size: 18px;
+             background: unset;
+             display: -webkit-box;
+             display: -ms-flexbox;
+             display: -webkit-flex;
+             display: flex;
+             -webkit-box-pack: center;
+             -ms-flex-pack: center;
+             -webkit-justify-content: center;
+             justify-content: center;
+             -webkit-box-align: center;
+             -ms-flex-align: center;
+             -webkit-align-items: center;
+             align-items: center;
+         }*/
+        .unpay_list{
+            display: block;
+            width: 100%;
+        }
+        .pay_list{
+            width: 100%;
+        }
+
+        .cesuan_title{
+            width: 5.16rem !important;
+        }
+        .cesuan_title img{
+            width: 5.16rem !important;
+        }
+        .swiper-wrapper{
+            margin-bottom: 20px;
+        }
+        .swiper-slide{
+            margin-bottom: 0!important;
+            margin-bottom: 0!important;
+        }
+    </style>
+</head>
+<body>
+<style>
+    .subhead_cesuan{
+        display: block;
+        width: 100%;
+        height: 40px;
+        background:rgba(0,0,0,1);
+        opacity:0.7;
+    }
+    .page_header{  font-size: 12px;}
+    .ljlq, .btn-ljck{
+        width: 80px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 13px;
+        float: right;
+        padding: unset;
+        margin-top: 5px;
+        border-radius: 6px;
+        margin-bottom: unset;
+        margin-right: 2px;
+        color: #ffffff;
+        border:1px solid #ffffff;
+        background-color: unset;
+    }
+    .gonggao{
+        width: 20px;
+        height: auto;
+        margin-top: 10px;
+        margin-left: 9px;
+        float: left;
+    }
+    .zymj_title{
+        display: none;
+        color: #fff;
+        display: inline-block;
+        float: left;
+        height: 30px;
+        font-size: 14px;
+        line-height: 30px;
+        margin-top: 5px;
+        width: 190px;
+        margin-left: 6px;
+        white-space: nowrap;
+        animation:8s wordsLoop infinite;
+        animation-timing-function:linear;
+        -webkit-animation-timing-function:linear; /* Safari 和 Chrome */
+        overflow: hidden;
+    }
+    @keyframes wordsLoop {
+        0% {
+            transform: translateX(190px);
+            -webkit-transform: translateX(190px);
+        }
+        100% {
+            transform: translateX(-190px);
+            -webkit-transform: translateX(-190px);
+        }
+    }
+
+    @-webkit-keyframes wordsLoop {
+        0% {
+            transform: translateX(190px);
+            -webkit-transform: translateX(190px);
+        }
+        100% {
+            transform: translateX(-190px);
+            -webkit-transform: translateX(-190px);
+        }
+    }
+    .subhead_close{
+        height: 40px;
+        width: 40px;
+        float: right;
+        display: block;
+        background-image: url("../static/Public/Ffcs1/css/img/close.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/close.png*/;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 10px 10px;
+    }
+    .zymj_gzh_cover,
+    .act190308_cover {
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        background:rgba(0,0,0,1);
+        opacity:0.7;
+        z-index: 99;
+    }
+    .zymj_gzh {
+        display: none;
+        width: 350px;
+        height: 410px;
+        z-index: 1001;
+        position: fixed;
+        left: 50%;
+        margin-left: -175px;
+        top: 50%;
+        margin-top: -215px;
+        background-image: url("../static/Public/Ffcs1/css/img/background.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/background.png*/;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+    .act190308 {
+        display: none;
+        width: 360px;
+        height: 430px;
+        z-index: 1001;
+        position: fixed;
+        left: 50%;
+        margin-left: -180px;
+        top: 50%;
+        margin-top: -215px;
+        background-image: url("../static/Public/Ffcs1/images/act190308/tanchuang.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/images/act190308/tanchuang.png*/;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+    .zymj_gzh p {
+        text-align: center;
+        font-size: 13px;
+        color: #C3272B;
+    }
+    .zymj_gzh_inside {
+        font-family: "KaiTi";
+        width:300px;
+        height:auto;
+        padding: 6px 0;
+        text-align: center;
+        background:rgba(255,255,255,.4);
+        border-radius:10px;
+        margin: 0 auto;
+        margin-top: 250px;
+    }
+    .zymj_gzh_inside p {
+        opacity: 1;
+        color: #C3272B;
+        font-size: 16px;
+    }
+    .zymj_gzh_number {
+        width: 100px;
+        height: 30px;
+        display: inline-block;
+        background-color: #ffffff;
+        color: #C3272B;
+        margin: 10px auto;
+        border-radius: 4px;
+        line-height: 30px;
+    }
+    .zymj_gzh_copy {
+        width: 100px;
+        height: 30px;
+        background-color: #C3272B;
+        color: #ffffff;
+        border-radius: 4px;
+        line-height: 30px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+    .zymj_gzh_close,
+    .act190308_close {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-image: url("../static/Public/Ffcs1/css/img/close2.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/close2.png*/;
+        background-repeat: no-repeat;
+        background-size: 20px 20px;
+        background-position: center;
+    }
+    .act190308_goto_wechat {
+        width: 300px;
+        height: 80px;
+        position: absolute;
+        right: 30px;
+        top: 300px;
+        background-image: url("../static/Public/Ffcs1/images/act190308/goto_wechat.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/images/act190308/goto_wechat.png*/;
+        background-repeat: no-repeat;
+        background-size: 150px 40px;
+        background-position: center;
+    }
+    .head_kefu{
+        position: absolute;
+        height: 25px;
+        line-height: 25px;
+        border: 1px solid #e49d6d;
+        border-radius: 5px;
+        padding: 0 5px;
+        display: block;
+        color: #e49d6d;
+        right: 90px;
+        top: 9px;
+    }
+    .copy_success{
+        display: none;
+        width: 340px;
+        height: 480px;
+        z-index: 1001;
+        position: fixed;
+        left: 50%;
+        margin-left: -170px;
+        top: 50%;
+        margin-top: -240px;
+        background-color: #ffffff;
+        border-radius: 10px;
+    }
+    .wx-caozuojpg{
+        width: 300px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    .dakai-wx{
+        width: 320px;
+        text-align: center;
+        font-size: 15px;
+        margin: 0 auto;
+    }
+    #zymj_go_gzh{
+        width: 300px;
+        height: 40px;
+        display: block;
+        margin: 0 auto;
+        background-color: unset;
+        background-image: url("../static/Public/Ffcs1/css/img/shuimogufeng/open_wechat.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/shuimogufeng/open_wechat.png*/;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+    .copy_title{
+        font-size: 22px;
+        text-align: center;
+        margin-top: 26px;
+        font-weight: bolder;
+        margin-bottom: 10px;
+    }
+    .header-title-left, .header-title-right{
+        height: 30px;
+        margin-top: 7px;
+        width: 20px;
+        position: absolute;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        background-image: url("../static/Public/Ffcs1/css/img/bzjingpi/header_title_left.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/bzjingpi/header_title_left.png*/;
+    }
+    .header-title-left{
+        margin-left: -20px;
+    }
+    .header-title-right{
+        transform: rotate(180deg);
+        background-image: url("../static/Public/Ffcs1/css/img/bzjingpi/header_title_left.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/bzjingpi/header_title_left.png*/;
+    }
+    .header_tit{
+        line-height: 30px;
+        height: 30px;
+        padding: 0 5px;
+        background-repeat: repeat-x;
+        background-size: contain;
+        background-position: center;
+        background-image: url("../static/Public/Ffcs1/css/img/bzjingpi/header_title_center.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/bzjingpi/header_title_center.png*/;
+    }
+    .header_fankui{
+        position: absolute;
+        height: 25px;
+        line-height: 25px;
+        border: 1px solid #EE3F4D;
+        border-radius: 5px;
+        padding: 0 0.1rem;
+        display: block;
+        color: #EE3F4D;
+        right:80px;
+        top: 9px;
+    }
+    ::-webkit-scrollbar {
+        display: none;
+    }
+</style>
+
+<!--<header class="page_header">-->
+<!--<h1 class="header_tit">历史订单</h1>-->
+<!--<a class="header_home" href="/wap/index"></a>-->
+<!--<span class="head_kefu">客服</span>-->
+<!--<a href="/order/query/" class="header_menu">历史订单</a>-->
+<!--</header>-->
+<header class="page_header" style="text-align: center;">
+    <p style="height: 100%;">
+        <span class="header-title-left"></span>
+        <span class="header_tit" style="display: inline-block;margin: 7px 0;">历史订单</span>
+        <span class="header-title-right"></span>
+    </p>
+    <a class="header_home" href="/wap/index"></a>
+</header><div class="zymj_gzh_cover">
+</div>
+
+
+
+
+<script src="../static/Public/Ffcs1/js/clipboard.min.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/js/clipboard.min.js"></script>
+<script src="../static/Public/Ffcs1/external/js/jquery-2.0.3.min.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/external/js/jquery-2.0.3.min.js"></script>
+<script>
+    $(".head_kefu").click(function () {
+        $(".add_assistant,.add_assistant_cover").fadeIn(200);
+    });
+    $(".subhead_close").click(function () {
+        $(".subhead_cesuan").hide();
+    });
+    $(".ljlq").click(function () {
+        $(".zymj_gzh,.zymj_gzh_cover").fadeIn(200);
+    });
+    $(".zymj_gzh_close,.zymj_gzh_cover").click(function () {
+        $(".zymj_gzh,.zymj_gzh_cover,.copy_success").hide();
+    });
+    $(".btn-ljck").click(function () {
+        $(".act190308,.act190308_cover").fadeIn(200);
+    });
+    $(".act190308_close,.act190308_cover").click(function () {
+        $(".act190308,.act190308_cover").hide();
+    });
+    var clipboard11 = new Clipboard('#zymj_gzh_copy', {
+        text: function() {
+            return 'smxsgw';
+        }
+    });
+    var clipboard13 = new Clipboard('#goto_wechat', {
+        text: function() {
+            return 'smxsgw';
+        }
+    });
+    $("#goto_wechat").click(function(){
+        $(".act190308,.act190308_cover").fadeOut(200);
+        $("#gzh-cover,#gzh-service").fadeIn(200);
+    });
+    $("#zymj_gzh_copy").click(function(){
+        // layui.layer.msg("复制成功",{icon:6});
+        $(".zymj_gzh").hide();
+        $(".copy_success").fadeIn(300);
+    });
+    $("#zymj_go_gzh").click(function(){
+        window.location.href='weixin://';
+    });
+</script>
+
+<style>
+    .service-cover{
+        display: none;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        position: fixed;
+        background-color:rgba(25,25,25,0.85);
+    }
+    .custom-service{
+        display: none;
+        position: fixed;
+        width: 360px;
+        height: 550px;
+        top: 50%;
+        left: 50%;
+        color: #333333;
+        font-size: 14px;
+        margin-top: -260px;
+        margin-left: -180px;
+        background-color: #ffffff;
+        z-index: 9999;
+        border-radius: 5px;
+    }
+    .custom-service a{
+        color: #00A0E9;
+    }
+    .custom-service .service-inside{
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+    .custom-service .close{
+        position: absolute;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        background-image: url("../static/Public/Ffcs1/css/img/shuimogufeng/close.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/shuimogufeng/close.png*/;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 20px 20px;
+    }
+    .custom-service .s-title{
+        margin-top: 0.6rem;
+        font-size: 0.45rem;
+    }
+    .custom-service .service-title{
+        text-align: center;
+        font-size: 24px;
+        font-weight: bolder;
+        margin: 10px auto;
+    }
+    .custom-service .wx-caozuojpg{
+        width: 100%;
+        display: block;
+        margin:0 auto;
+    }
+    .custom-service .dakai-wx{
+        font-size: 16px;
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+    }
+    .custom-service .layui-btn{
+        width: 220px;
+        height: 40px;
+        margin: 0 auto;
+        display: block;
+        background-color: #00C204;
+        margin-top: 0;
+        background-image: url("../static/Public/Ffcs1/css/img/shuimogufeng/open_wechat.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/shuimogufeng/open_wechat.png*/;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size:contain;
+    }
+</style>
+<div class="service-cover" id="gzh-cover"></div>
+
+<script>
+    $(document).ready(function(){
+        $("#gzh-close,#gzh-cover").click(function () {
+            $("#gzh-service").css("display","none");
+            $("#gzh-cover").css("display","none");
+        })
+        $("#gowechat2").click(function(){
+            setTimeout(function(){
+                window.location.href='weixin://';
+            },300);
+        });
+    });
+</script>
+
+<!--<div class="page_banner">
+	<img src="//imgffcs.smxs.com/Public/Ffcs1/images/top_banner.png" alt="顶部横幅"/>
+</div>-->
+<div class="his_bgcolor_box">
+    <div class="query_form">
+        <div class="tip"><span class="red">温馨提示：</span>历史订单只能够查询付费后的订单，未付费订单无法查询。</div>
+        <div class="order_search clear" style="margin-bottom: 0.4rem;position: relative">
+            <div class="delete"></div>
+            <input type="text" id="keyword" value="" nolocal="true" placeholder="输入手机号或订单号查询" class="input">
+            <button class="btn" id="orderSearch">查询</button>
+        </div>
+        <!--  <ul class="faq_feedback">
+              <li><a class="feedback" href="/user/faq/" hidetxt="问题反馈">问题反馈</a></li>
+              <li><a href="#" onclick="history.go(-1);return false;" class="goback">返回</a></li>
+          </ul>-->
+    </div>
+</div>
+<script>
+    $("#orderSearch").click(function (e) {
+        $.ajax({
+            url:"/wap/his/checkPhone",
+            type:"post",
+            dataType: 'json',
+            contentType: 'application/json',
+            data:$("#keyword").val(),
+            success:function (e) {
+                if(e.success==true){
+                    window.location.href="/wap/hisGetOrder?phone="+$("#keyword").val();
+                }else{
+                    layer.msg("该手机号没有订单", {icon:5});
+
+                }
+
+
+            }
+        })
+    })
+</script>
+<div class="his_bgcolor_box history_order" style="background: none">
+    <div class="box_title">— 历史订单 —</div>
+    <div class="swiper-container fukuan swiper-container-horizontal swiper-container-android" style="height: 406px;" >
+    </div>
+
+    <!--    <div class="swiper-container fukuan">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="order_list pay_list">
+                                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="order_list unpay_list">
+                                </div>
+            </div>
+        </div>
+    </div>-->
+
+
+</div>
+<script src="../static/Public/Ffcs1/js/swiper.min.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/js/swiper.min.js"></script>
+<link href="../static/Public/Ffcs1/css/swiper.min.css" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/css/swiper.min.css" rel="stylesheet" type="text/css"/>
+<link href="../static/Public/Ffcs1/css/hot_product.css" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/css/hot_product.css" rel="stylesheet" type="text/css"/>
+<script src="../static/Public/Ffcs1/js/swiper.min.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/js/swiper.min.js"></script>
+<script>
+    $(function () {
+        // debugger
+        var swiper = new Swiper('.cesuan', {
+
+            slidesPerView: 4,
+            spaceBetween: 0,
+            slidesPerGroup: 4,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: '.swiper-pagination-cesuan',
+                clickable: true,
+            },
+        });
+    })
+</script>
+
+<script src="../static/Public/Ffcs1/external/js/jquery-2.0.3.min.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/external/js/jquery-2.0.3.min.js"></script>
+<style>
+    .add_assistant_cover{
+        display: none;
+        width: 100%;
+        height: 100%;
+        z-index: 69;
+        left: 0;
+        top: 0;
+        position: fixed;
+        background-color: rgba(0,0,0,.6);
+    }
+    .add_assistant{
+        display: none;
+        width: 360px;
+        height: 560px;
+        position: fixed;
+        left: 50%;
+        margin-left: -180px;
+        top: 50%;
+        margin-top: -280px;
+        z-index: 99;
+        background-color: #ffffff;
+        border-radius: 10px;
+
+    }
+    .weixin_demo{
+        width: 300px;
+        height: auto;
+        margin: 8px auto;
+        display: block;
+    }
+    .open_wx{
+        width: 320px;
+        height: 70px;
+        border: unset;
+        background-image: url("../../Public/Ffcs1/css/img/shuimogufeng/open_wechat.png")/*tpa=https://ffcs.smxs.com/Public/Ffcs1/css/img/shuimogufeng/open_wechat.png*/;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        background-color: unset;
+        display: block;
+        margin: 0 auto;
+    }
+    .add_friend{
+        text-align: center;
+        font-size: 15px;
+        margin: 0 auto;
+        color: #999999;
+    }
+    .add_friend span{
+        color: #00C204;
+    }
+    .zixun{
+        width: 70px;
+        height: auto;
+        position: fixed;
+        right: 0;
+        top: 230px;
+        z-index: 999;
+    }
+    .add_assistant_title{
+        font-size: 19px;
+        color: #333333;
+        margin-top: 20px;
+        width: 300px;
+        margin: 0 auto;
+    }
+    .add_assistant_close{
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        background-image: url("../../Public/Ffcs1/css/img/shuimogufeng/close.png")/*tpa=https://ffcs.smxs.com/Public/Ffcs1/css/img/shuimogufeng/close.png*/;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        display: block;
+        right: 8px;
+        top: 8px;
+    }
+    .add_assistant_block{
+        width: 300px;
+        height: 45px;
+        line-height:45px;
+        font-size: 17px;
+        color: #C3272B;
+        border: 1px solid #C3272B;
+        margin: 10px auto;
+        border-radius: 4px;
+    }
+    .number_left{
+        display: inline-block;
+        width: 198px;
+        text-align: center;
+    }
+    .number_right{
+        display: block;
+        width: 100px;
+        text-align: center;
+        color: #FFFFFF;
+        text-align: center;
+        background-color: #C3272B;
+        float: right;
+        border: 1px solid #C3272B;
+        margin-top: -1px;
+        border-radius: 0 4px 4px 0;
+    }
+    .add_assistant .service-title{
+        font-weight: bolder;
+        text-align: center;
+        font-size: 24px;
+        margin-top: 25px;
+    }
+    .add_assistant .service-line{
+        height: 30px;
+        width: 300px;
+        line-height: 30px;
+        display: flex;
+        font-size: 17px;
+        margin: 10px auto;
+    }
+    .add_assistant .way{
+        color: #00A0E9;
+    }
+    .add_assistant .gray{
+        color: #999999;
+        font-size: 15px;
+    }
+    .add_assistant .tel{
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background-image: url("../../Public/Ffcs1/css/img/shuimogufeng/tel.png")/*tpa=https://ffcs.smxs.com/Public/Ffcs1/css/img/shuimogufeng/tel.png*/;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 20px 20px;
+    }
+    .connect_way{
+        width: 300px;
+        margin: 6px auto;
+        font-size: 19px;
+    }
+    .add_hr{
+        display: block;
+        width: 300px;
+        margin: 10px auto;
+    }
+</style>
+
+
+
+<script src="../static/Public/Ffcs1/js/clipboard.min.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/js/clipboard.min.js"></script>
+<script>
+    $("#add-close,.add_assistant_cover").click(function () {
+        $(".add_assistant_cover,.add_assistant").hide();
+    });
+    $(".zixun,#page_footer_words").click(function () {
+        $(".add_assistant_cover,.add_assistant").fadeIn(300);
+    });
+    var clipboard = new Clipboard('#wx_number', {
+        text: function() {
+            return 'smxs-001';
+        }
+    });
+    var clipboard2 = new Clipboard('#go_wechat', {
+        text: function() {
+            return 'smxs-001';
+        }
+    });
+    $("#wx_number").click(function () {
+        layui.layer.msg("复制成功", {icon:6});
+    });
+    //打开微信
+    $("#go_wechat").click(function () {
+        window.location.href='weixin://';
+    });
+</script>
+<style>
+    /*十个测算产品前往公众号*/
+    .back-gzh-cover{
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top:0;
+        z-index: 1000;
+        background-color: rgba(0,0,0,0.6);
+    }
+    .back-go-gzh{
+        display: none;
+        position: fixed;
+        width: 320px;
+        height: 320px;
+        left: 50%;
+        top: 50%;
+        z-index: 1001;
+        margin-top: -160px;
+        margin-left: -160px;
+        background-image: url("../static/Public/Ffcs1/css/img/shuimogufeng/back_go_gzh.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/shuimogufeng/back_go_gzh.png*/;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .back-go-gzh .wxh{
+        position: absolute;
+        width: 160px;
+        height: 160px;
+        left: 50%;
+        top: 50%;
+        margin-top: -80px;
+        margin-left: -80px;
+        border: 3px solid #000000;
+    }
+    .back-go-gzh .close_2x{
+        width: 100px;
+        height: 40px;
+        position: absolute;
+        bottom: -130px;
+        left: 50%;
+        margin-left: -50px;
+        background-color: unset;
+        font-size: 16px;
+        color: #ffff;
+        border: unset;
+    }
+    .back-go-gzh .copy-gzh{
+        width: 100px;
+        height: 40px;
+        background-color: #C3272B;
+        color: #ffffff;
+        font-size: 16px;
+        line-height: 40px;
+        opacity: 1;
+        position: absolute;
+        top: 340px;
+        left: 50%;
+        margin-left: -50px;
+        border: unset;
+    }
+    .back-go-gzh .receive{
+        font-size: 15px;
+        margin: 20px;
+        text-align: center;
+    }
+    .back-go-gzh .receive span{
+        font-weight: bolder;
+    }
+    .back-go-gzh .save{
+        text-align: center;
+        font-size: 15px;
+        margin-top: 190px;
+    }
+    .back-go-gzh .open-wx{
+        font-size: 10px;
+        text-align: center;
+        margin-top: 10px;
+        color: #999999;
+    }
+    .back-go-gzh .open-wx span{
+        color: #333333;
+    }
+</style>
+
+<script src="../static/Public/Ffcs1/js/clipboard.min.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/js/clipboard.min.js"></script>
+<script>
+    $("#go_gzh").click(function () {
+        $(".back-go-gzh,.back-gzh-cover").fadeIn(300);
+    });
+    $(".back-gzh-cover,.close_2x").click(function () {
+        $(".back-go-gzh,.back-gzh-cover").fadeOut(200);
+    });
+    $(".back-gzh-cover,.back-go-gzh").bind('touchmove',function (e) {
+        e.preventDefault();
+    })
+    var clipboard5 = new Clipboard('#fuzhigzh', {
+        text: function() {
+            return 'smxsgw';
+        }
+    });
+    $("#fuzhigzh").click(function(){
+        $(".back-go-gzh,.back-gzh-cover").fadeOut(200);
+        window.location.href='weixin://';
+    });
+</script>
+<script src="../static/Public/Ffcs1/layui/layui.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/layui/layui.js"></script>
+<script src="../static/Public/Ffcs1/js/calendar.min.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/js/calendar.min.js"></script>
+<script src="../static/Public/Ffcs1/js/index.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/js/index.js"></script>
+<div style="display: none">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "../../../hm.baidu.com/hm.js-76b9e60d61a3faa4562b358c090cf6ff"/*tpa=https://hm.baidu.com/hm.js?76b9e60d61a3faa4562b358c090cf6ff*/;
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        function setUv() {
+            var product = $("input[name='product']").val();
+            if (product && typeof(product) != "undefined") {
+                var postdata = {'product': product};
+                $.post("/ffcs/setuv", postdata, function(result){
+
+                }, "json");
+            }
+        }
+        $(function () {
+            setUv();
+        });
+
+
+    </script>
+</div>
+
+<script>
+    //左右滑动监听事件
+    var swiper = new Swiper('.fukuan', {
+        on:{
+            slideChangeTransitionEnd: function () {
+                if (this.realIndex == 0){
+                    $(".pb1").addClass("pay_select");
+                    $(".pb2").removeClass("pay_select");
+                    $(".pb1").children().addClass("red_line");
+                    $(".pb2").children().removeClass("red_line");
+                    $(".fukuan").css("height",$('.pay_list').outerHeight());
+                } else if (this.realIndex == 1){
+                    $(".pb2").addClass("pay_select");
+                    $(".pb1").removeClass("pay_select");
+                    $(".pb1").children().removeClass("red_line");
+                    $(".pb2").children().addClass("red_line");
+                    $(".fukuan").css("height",$('.unpay_list').outerHeight());
+                }
+            }
+        },
+    });
+    //已支付和未支付的点击事件
+    $(".pay_block").click(function () {
+        var index  = $(this).attr("data-id");
+        swiper.slideTo(index);
+        if( index== 0 ){
+            $(".pb1").addClass("pay_select");
+            $(".pb2").removeClass("pay_select");
+            $(".pb1").children().addClass("red_line");
+            $(".pb2").children().removeClass("red_line");
+            $(".fukuan").css("height",$('.pay_list').outerHeight());
+        }else {
+            $(".pb2").addClass("pay_select");
+            $(".pb1").removeClass("pay_select");
+            $(".pb1").children().removeClass("red_line");
+            $(".pb2").children().addClass("red_line");
+            $(".fukuan").css("height",$('.unpay_list').outerHeight());
+        }
+    });
+    //文档加载完毕设置已支付页面的长度
+    $(document).ready(function () {
+        $(".fukuan").css("height",$('.pay_list').outerHeight());
+    });
+    if ($("#delete").val() == '') {
+        $('.delete').hide();
+    }
+
+    $('#delete').keyup(function () {
+        $('.delete').show();
+        if ($("#delete").val() == '') {
+            $('.delete').hide();
+        }
+    })
+    //清除input里面的文字内容
+    $('.delete').click(function () {
+        $("#delete").val("");
+        $('.delete').hide();
+    })
+
+</script>
+</body>
+</html>

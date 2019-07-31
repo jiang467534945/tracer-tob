@@ -52,7 +52,7 @@ import java.util.Map;
 @Order(Integer.MIN_VALUE)
 
 @EnableAuthorizationServer
-public class TracerAuthorizationConfig extends AuthorizationServerConfigurerAdapter {
+public class  TracerAuthorizationConfig extends AuthorizationServerConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
@@ -99,7 +99,6 @@ public class TracerAuthorizationConfig extends AuthorizationServerConfigurerAdap
                 .tokenKeyAccess("permitAll()")
                 .checkTokenAccess("permitAll()")
                 .allowFormAuthenticationForClients();
-
     }
 
     @Bean

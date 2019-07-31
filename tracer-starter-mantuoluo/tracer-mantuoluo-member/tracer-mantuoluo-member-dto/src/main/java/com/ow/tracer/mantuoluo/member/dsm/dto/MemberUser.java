@@ -21,6 +21,8 @@ public class MemberUser extends BaseDTO<MemberUser> {
     private int gender;
 
     private int userType;
+    private Double lat;
+    private Double lng;
 
     public String getNickName() {
         return this.nickName;
@@ -60,6 +62,22 @@ public class MemberUser extends BaseDTO<MemberUser> {
 
     public void setUserType(int userType) {
         this.userType = userType;
+    }
+
+    public Double getLat() {
+        return lat;
+    }
+
+    public void setLat(Double lat) {
+        this.lat = lat;
+    }
+
+    public Double getLng() {
+        return lng;
+    }
+
+    public void setLng(Double lng) {
+        this.lng = lng;
     }
 
     public String toString(){

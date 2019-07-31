@@ -1,7 +1,6 @@
 export const ${data.lowerClassName}Option = {
     border: true,
-    index: true,
-    indexLabel: '序号',
+
     selection: true,
     columnBtn:false,
     refreshBtn:false,
@@ -17,8 +16,7 @@ export const ${data.lowerClassName}Option = {
     {
                 label: "编号",
                 prop: "id",
-                width: "150",
-                fixed: true,
+
                 hide:true,
                 visdiplay:false,
                 rules: [{
@@ -34,8 +32,7 @@ export const ${data.lowerClassName}Option = {
         {
         label:"${c.simpleColumnComment}",
         prop:"${c.property}",
-        width:"150",
-       fixed: true,
+
             rules: [{
                    required: true,
                    message: "${c.simpleColumnComment}",

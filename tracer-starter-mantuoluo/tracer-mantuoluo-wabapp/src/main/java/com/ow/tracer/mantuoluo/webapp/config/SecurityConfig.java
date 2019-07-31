@@ -24,7 +24,16 @@ public class SecurityConfig extends ResourceServerConfigurerAdapter {
                 .antMatchers("/user/**","/dept/**")
                 .authenticated()
                 .and()
-                .headers().frameOptions().disable();
+                .headers().frameOptions().disable()
+                .and()
+                .csrf().disable()
+                    .authorizeRequests()//定义哪些URL需要被保护、哪些不需要被保护
+
+                .anyRequest()//任何请求,登录后可以访问
+                .access("@rbacauthorityservice.hasPermission(request,authentication)");// RBAC 动态 url 认证
+
+
+
     }
     /**
      * 配置解决 spring-security-oauth问题

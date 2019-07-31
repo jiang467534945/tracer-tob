@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*此样式在窗口小于768px的时候生效*/
+@media screen and (max-width:750px) {/*768*1024*/
+.content,.ftnav a,.header,.head,.footnav ul{
+	width:100%;
+	}
+.eject .eject-cont,.eject-cont{
+	width:94%;
+	}
+}
+
+
+
+

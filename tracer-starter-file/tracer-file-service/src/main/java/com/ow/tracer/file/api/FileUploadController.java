@@ -68,7 +68,7 @@ public class FileUploadController  extends BaseController {
         FileUtil.writeFromStream(file.getInputStream(),dest);
         //创建文件
         FileUtil.touch(dest);
-        url="http://60.208.57.115:15809/"+url;
+        url="http://xingfudna.com:15809/"+url;
 
         //用于上传文件用的返回类，集成了基础返回类，传值为图片名称（自定义），和编辑好的图片路径（同本方法内的url）
         return  new FileResult(fileName, url);

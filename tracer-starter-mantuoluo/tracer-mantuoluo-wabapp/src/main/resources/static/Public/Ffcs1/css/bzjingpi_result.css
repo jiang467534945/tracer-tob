@@ -1,0 +1,1050 @@
+.user_formbody {
+	background-color: #f6d6a6;
+}
+.red {
+    color: red;
+}
+.gray {
+    color: gray;
+}
+.tac {
+    text-align: center;
+}
+.mt15 {
+    margin-top: 15px;
+}
+
+/* 测算按钮 */
+.cesuan_tupian img {
+    width:6.9rem;
+    height:0.8rem;
+
+}
+.cesuan_tupian{
+    border: none;
+
+}
+.layui-btn-radius {
+
+}
+.page_btn_s {
+	padding: 0 0 10px
+}
+.page_btn_s a {
+    height: 38px;
+    line-height: 38px;
+	background-color: #d23037
+}
+
+/* 图片 */
+.box_img {
+    padding: 0 10px;
+}
+.box_img p {
+    padding: 5px 0;
+}
+.box_img img {
+	width: 100%;
+	display: block;
+    padding-top: 0.6rem;
+}
+
+/* 表单ui重置 */
+.bgcolor_box {
+	margin-bottom: 10px;
+	padding: 10px 0;
+    overflow: visible;
+}
+.layui-form {
+
+}
+.xing {
+    height:0.31rem;
+    font-size:0.32rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(195,39,43,1);
+}
+#xingming{
+    height:0.5rem;
+    font-size:0.32rem;
+    color: #999999;
+    padding-left: 0.1rem;
+    line-height: 0.5rem;
+
+}
+.layui-input, .layui-select, .layui-textarea {
+    border: none;
+}
+.layui-form-danger+.layui-form-select .layui-input, .layui-form-danger:focus {
+    border: none!important;
+}
+.layui-form-item {
+ margin-bottom: 0.1rem;
+}
+.layui-form-item .layui-inline {
+    margin-bottom: 0;
+}
+/* 表单取消背景颜色 */
+.layui-form .layui-form-label,
+.layui-input, .layui-select, .layui-textarea,
+.layui-form .layui-input-block {
+    background: none;
+}
+/* 表单边框圆角 */
+.layui-form-item {
+    border-radius: 10px;
+    -o-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+.layui-form-radio i:hover, .layui-form-radioed i {
+    color: #d41d21;
+}
+.layui-form-select dl dd.layui-this {
+    background-color: #d41d21;
+}
+/* 隐私协议 */
+.agreement{
+  float: left;
+    margin-top:0.4rem;
+}
+.test_num{
+    float: right;
+    margin-top:0.4rem;
+}
+.agreement a {
+    vertical-align: middle;
+    font-size:0.24rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:#FF4B4B;
+    line-height:0.45rem;
+}
+.tongyi{
+    vertical-align: middle;
+    font-size:0.24rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:#333333;
+    line-height:0.45rem;
+}
+.test_num {
+    font-size: 0.28rem;
+}
+.test_num span {
+    padding: 0 5px;
+    color:#FF4B4B;
+}
+.layui-form-switch,
+.layui-form-onswitch {
+    margin-top: 0;
+}
+.layui-form-onswitch {
+    border-color: #d41d21;
+    background-color: #d41d21;
+}
+
+/* 我的测算按钮 */
+.my_test_btn {
+    width: 160px;
+    height: 34px;
+    line-height: 34px;
+    margin: 0 auto;
+    border: 1px solid #d41d21;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.my_test_btn a {
+    font-weight: bold;
+    color: #d13a30;
+}
+
+
+.user_form {
+    background: url("img/bzjingpi/biaodan.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs/css/img/bzjingpi/biaodan.png*/;
+    position: relative;
+    width:6.89rem;
+    height:3rem;
+    margin: 0.3rem;
+    background-size: 6.9rem;
+    margin-top: 0;
+    background-repeat: no-repeat;
+}
+.lock_title {
+    position: relative;
+    margin: 0.2rem 1.17rem 0.3rem 1.17rem;
+    font-size:0.4rem;
+    font-family:STLiti;
+    text-align: center;
+    font-weight:400;
+    color:rgba(168,66,0,1);
+    line-height:0.32rem;
+}
+.lock_title {
+    display: block;
+}
+.lock_title .left,
+.lock_title .right {
+    background: url("img/bzjingpi/title_left.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs/css/img/bzjingpi/title_left.png*/ no-repeat #f6efdc;
+    width: 35px;
+    height: 49px;
+    background-size: 100% 100%;
+}
+.lock_title .right {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+}
+.lock_title .body {
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.box_title {
+    position: relative;
+    padding: 15px 0;
+}
+.box_title img {
+    width: 100%;
+    vertical-align: top;
+    border: 0;
+}
+.box_title span {
+    position: absolute;
+    top:50%;
+    left:50%;
+    width:100%;
+    transform:translate(-50%,-50%);
+    text-align: center;
+    color: #fff;
+}
+
+/* 支付页 */
+.userinfo {
+    position: relative;
+}
+.userinfo img {
+    width: 100%;
+    vertical-align: top;
+    border: 0;
+}
+.userinfo .txt,
+.userinfo .txt2 {
+    position: absolute;
+    top: 30%;
+    left: 15%;
+    width: 70%;
+    margin: 0 auto;
+    line-height: 21px;
+}
+.userinfo .txt2 {
+    top: 25%;
+    left: 25%;
+    width: 60%;
+    line-height: 22px;
+}
+.userinfo .txt p {
+    text-align: center;
+    color: #545454;
+}
+.userinfo .txt p b {
+    font-size: 1.1em;
+    color: #010101;
+}
+.userinfo .txt2 span,
+.userinfo .txt2 p {
+    color: #c52026;
+}
+.userinfo .txt2 p {
+    /*text-indent: 2em;*/
+    color: #c52026;
+}
+.pay_bgcolor_box {
+    margin-bottom: 15px;
+    padding: 15px 0 10px;
+    background-color: #fff;
+}
+.price {
+    padding: 10px 0;
+    text-align: center;
+}
+.price .price1 {
+    color: #545454;
+    text-decoration: line-through;
+}
+.price .price2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+}
+.price .price2 .red {
+    font-size: 26px;
+}
+.payway {
+    padding: 15px 0;
+}
+.payway .weixin {
+    background: url("img/weixin.jpg")/*tpa=https://imgffcs.smxs.com/Public/Ffcs/css/img/weixin.jpg*/ center center no-repeat #f9f9f9;
+    background-size: 90px;
+}
+.payway .alipay {
+    background: url("img/alipay.jpg")/*tpa=https://imgffcs.smxs.com/Public/Ffcs/css/img/alipay.jpg*/ center center no-repeat #f9f9f9;
+    background-size: 90px;
+}
+.payway .txt {
+    text-align: center;
+}
+.payway a {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin: 10px 20px 0;
+    border: 1px solid #949494;
+    border-radius: 5px;
+    text-indent: -9999em;
+}
+.pay_tip {
+    background-color: #ffe9ca;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+.lock_item {
+    padding: 10px;
+    border-top: 1px solid #e2ccb0;
+}
+.lock_item, .lock_item dl {
+    margin-top: 10px;
+    overflow: hidden;
+}
+.lock_item dt {
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    background-color: #d23037;
+    position: relative;
+    color: #fff;
+    font-size: 18px;
+}
+.lock_item dt:after, .lock_item dt:before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    -webkit-border-radius: 0 0 20px 0;
+    border-radius: 0 0 20px;
+}
+.lock_item dt:before {
+    left: 0;
+    -moz-transform: scaleX(-5);
+    -webkit-transform: scaleX(-5);
+    -o-transform: scaleX(-5);
+    transform: scaleX(-5);
+    filter: FlipH;
+}
+.lock_item dt:after {
+    right: 0;
+    -moz-transform: scaleX(5);
+    -webkit-transform: scaleX(5);
+    -o-transform: scaleX(5);
+    transform: scaleX(5);
+    filter: FlipH;
+}
+.lock_item dd {
+    overflow: hidden;
+    position: relative;
+    padding: 10px;
+    background: url("img/bzjingpi/form_bg.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs/css/img/bzjingpi/form_bg.png*/ #f6efdc;
+}
+.lock_item dd p {
+    line-height: 24px;
+    padding: 5px 0;
+}
+.lock_item dd .btn {
+    color: #fff;
+    height: 35px;
+    line-height: 35px;
+    background-color: #d23037;
+    padding: 0 35px;
+    display: inline-block;
+    border-radius: 15px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+.lock_item dd .tac button {
+    width: auto;
+    font-size: 16px;
+}
+.layui-layer-page {
+    border-radius: 10px;
+}
+#PAY_pop {
+    padding: 25px 10px;
+    border-radius: 10px;
+}
+#PAY_pop .title {
+    font-size: 16px;
+    font-weight: bold;
+}
+#PAY_pop .red {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* 测算结果页 */
+.order_info {
+}
+.order_info .title {
+    text-align: center;
+}
+.order_info .title .red {
+    font-size: 18px;
+}
+.layui-collapse {
+    border: none;
+    border-radius: 2px;
+    padding: 0 0.3rem;
+}
+.layui-colla-item {
+    border: none;
+    margin-bottom: 0.9rem;
+    position: relative;
+}
+.res_bgcolor_box {
+    margin-bottom: 15px;
+    padding: 10px 0;
+    background-color: #f6efdc;
+}
+.layui-colla-title {
+    margin: 10px 0;
+    padding: 0 15px 0 20px;
+    background-color: #fff;
+    color: #c52026;
+    border-radius: 10px;
+}
+.layui-colla-icon {
+    left: auto;
+    right: 15px;
+}
+.layui-colla-content {
+    border: none;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+/* 订单查询页 */
+.his_bgcolor_box {
+    margin-bottom: 15px;
+    padding: 10px 0;
+    background-color: #f6efdc;
+}
+.query_form {
+    padding: 0 10px;
+}
+.query_form .tip {
+    font-size: 14px;
+    color: #333;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+.query_form .input,
+.query_form .btn {
+    height: 35px;
+    line-height: 35px;
+    box-sizing: border-box;
+}
+.query_form .input {
+    padding-left: 5px;
+    float: left;
+    border: 1px solid #d7d7d7;
+    border-right: none;
+    width: 75%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.query_form .btn {
+    float: right;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 25%;
+    background-color: #c52026;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+}
+.faq {
+    margin-top: 10px;
+}
+.faq a {
+    color: gray;
+}
+.history_order {
+    padding: 0 10px 5px;
+    background: url("img/bzjingpi/form_bg.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs/css/img/bzjingpi/form_bg.png*/ #f6efdc;
+}
+.order_list .order {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #d23037;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.order_list .order .item {
+    padding: 10px 5px 2px;
+    border-bottom: 1px solid #ddd;
+}
+.order_list .order .item .l {
+    display: inline-block;
+    width: 35%;
+    text-align: left;
+    font-weight: bold;
+}
+.order_list .order .item .r {
+    display: inline-block;
+    width: 65%;
+    text-align: right;
+}
+.order_list .order .item .no {
+    color: #cb161d;
+}
+.order_list .order .item .yes {
+    color: #0b6ccf;
+}
+
+/* 日期控件 */
+input.Js_date {
+
+    border: 0;
+    /*background-image: url(img/icon_right.png);*/
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 20px;
+    font-size: 0.32rem;
+    color: #999999;
+    width: 3rem;
+    text-align: left;
+    margin-right: 1rem;
+
+
+}
+.date_class_box .active {
+    background-color: #c52026;
+}
+.date_class {
+    border: 1px solid #c52026;
+}
+.lcalendar_finish {
+    color: #c52026;
+}
+.date_class,
+.date_info_box,
+.date_ctrl {
+    color: #de6e72;
+}
+
+/*评论滚动*/
+#gundong{
+    position:relative;
+    top:2rem;
+    left:0;
+    width:100%;
+    height: 460px;
+    overflow:hidden;
+    padding: unset;
+}
+#gundong ul li{
+    width: 80%;
+    margin: 0 auto;
+    line-height:20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+#gundong .order-p {
+    color: #999999;
+    font-size: 14px;
+}
+#gundong .order-riqi {
+    display: inline-block;
+}
+#gundong .order-dingdan{
+    display: inline-block;
+    color: #FF4B4B;
+    font-size: 0.3rem;
+    text-align: left;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: 400;
+    margin-left: 0.1rem;
+}
+.colla_title{
+    text-indent: unset!important;
+    color: #C82829;
+    text-align: center;
+    line-height: 20px;
+    font-size: 20px;
+    margin-top: 6px;
+}
+.colla_title .bagua{
+    width: 20px;
+    height: auto;
+    margin: 0 10px;
+    margin-top: -3px;
+}
+.layui-colla-item .layui-colla-content {
+    margin-bottom: 22px;
+    box-shadow:0px 0px 0.3rem 0px rgba(75,64,34,0.2);
+}
+.info_box{
+    height:2.8rem;
+}
+.baobao{
+    width: 3.15rem;
+    height: .5rem;
+    font-size: 0.32rem;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: 400;
+    color: rgba(195,39,43,1);
+    line-height: 0.5rem;
+    display: -webkit-box;
+    margin-left: 0.6rem;
+    float: left;
+}
+
+.xingbie{
+
+}
+body{
+    background: #faf2f0;
+}
+.beijing{
+    background: url("img/bzjingpi/beijing.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs/css/img/bzjingpi/beijing.png*/ #f6efdc;
+    background-size: 7.5rem 9.2rem;
+    padding-top: 0.3rem;
+
+}
+.sex-select{
+    float: right;
+    margin-right: 0.7rem;
+}
+.check-sex{
+    width:0.7rem;
+    border:1px solid rgba(195,39,43,1);
+    border-radius: 0.04rem 0px 0px 0.04rem;
+}
+.left-sex{
+    width:0.7rem;
+    font-size: 0.24rem;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: 400;
+    color: rgba(195,39,43,1);
+    line-height: 0.32rem;
+    float: left;
+    padding: 0.06rem 0.06rem;
+    text-align: center;
+    border-radius: 4px 0px 0px 4px;
+}
+.right-sex{
+    width:0.7rem;
+    font-size:0.24rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(195,39,43,1);
+    line-height:0.32rem;
+    padding: 0.06rem 0.06rem;
+    text-align: center;
+    border-radius: 0px 4px 4px 0px;
+    float: left;
+}
+.hr{
+    width:5.6rem;
+    height:0.02rem;
+    margin-left: 0.6rem;
+    margin-top: 0.2rem;
+    background:rgba(230,230,230,1);
+}
+.hr1{
+    width:5.6rem;
+    margin-top: 0.3rem;
+    height:0.02rem;
+    margin-left: 0.6rem;
+    margin-bottom: 0.3rem;
+    background:rgba(230,230,230,1);
+}
+.riqi{
+    height: 0.31rem;
+    font-size: 0.32rem;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: 400;
+    color: rgba(195,39,43,1);
+    margin-left: 0.6rem;
+    margin-top: 0.2rem;
+}
+.data{
+    margin-top: 0.2rem;
+    margin-left: 0.6rem;
+}
+#birthday{
+    font-size: 0.32rem;
+    color: #999999;
+    padding-left: 0.1rem;
+}
+.shengchen{
+    margin-top: 0.3rem;
+    clear: both;
+    margin-left: 0.6rem;
+}
+.biaotu{
+    width: 3.99rem;
+    height: 0.3rem;
+}
+
+.fankui{
+    background: url("img/bzjingpi/fankui.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs/css/img/bzjingpi/fankui.png*/ no-repeat center top;
+    background-size: 7.5rem 9.28rem;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+    position: relative;
+    top: 1px;
+    left: 0;
+    height: 9.28rem;
+    overflow: hidden;
+    padding: unset;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+.agreement .layui-form-checked{
+    color: red;
+    border-color: red;
+    font-size: 0.18rem;
+    padding: 0 0.11rem;
+    height: 0.22rem;
+}
+.agreement .layui-unselect,.layui-form-checkbox{
+    font-size: 0.18rem;
+    padding: 0 0.12rem;
+    height: 0.25rem;
+    border-color: red;
+    margin-right: 0.1rem;
+}
+.agreement .layui-form-checkbox i{
+    width: 0.22rem;
+    top: 0.01rem;
+    line-height: 0.22rem;
+    left: -0.07rem;
+    text-align: center;
+    font-size: 0.18rem;
+}
+.layui-form-checkbox:hover i {
+    color: #fff;
+}
+.agreement .layui-form-checked i {
+    color: red;
+}
+.agreement .black {
+    vertical-align: middle;
+    font-size: 16px;
+    color: #000000;
+    text-decoration: none;
+}
+.order-riqi{
+    color: #FF4B4B;
+    font-size: 0.3rem;
+    text-align: left;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+}
+.order-left{
+    font-size:0.3rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:#333333;
+    line-height: 0.6rem;
+}
+.sex-select .checked {
+    background: #C3272B;
+    border: 1px solid #C3272B;
+    color: white;
+    float: left;
+    text-align: center;
+}
+.fan{
+    height:8rem;
+    overflow: hidden;
+}
+.page_banner, .page_banner img{
+  /*  margin-bottom: 0.4rem;*/
+}
+.hot_product{
+    margin-top:50px;
+}
+.second_form .hr{
+    height: 0.02rem;
+}
+.second_form .hr1{
+    height: 0.02rem;
+}
+.res_bgcolor {
+    position: relative;
+    margin-top: 0.9rem;
+}
+.pai_title{
+    position: absolute;
+    line-height: 0.4rem;
+    color: #fff;
+    top: -0.4rem;
+    left: 0.85rem;
+    text-align: center;
+    width: 5.28rem;
+    display: block;
+    background: url("../images/bzjingpi/bzjingpi.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs/images/bzjingpi/bzjingpi.png*/ no-repeat;
+    background-size: 5.28rem 0.94rem;
+    cursor: pointer;
+}
+.pai_title span {
+    line-height: 0.72rem;
+    font-size: 0.34rem;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: bold;
+    color: rgba(254,254,254,1);
+}
+.tal b{
+    color: #1D2023;
+    font-size: 0.28rem;
+    line-height: 0.48rem;
+    text-align: left;
+}
+.bz_mingpan{
+    margin-top: 0.2rem;
+}
+.tal span{
+    color: #1D2023;
+    font-size: 0.28rem;
+}
+.xiyong b{
+    font-size:0.3rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:bold;
+    color:rgba(255,113,54,1);
+}
+.fenxi{
+    font-size:0.3rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(29,32,35,1);
+}
+.layui-collapse p {
+    text-indent: 0;
+    font-size: 0.28rem;
+    line-height: 1.7em;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: 400;
+    color: #666666;
+}
+.zhu{
+    width: 2rem;
+    height: 2rem;
+    margin-top: 0.6rem;
+    margin-left: 2.2rem;
+}
+.second_title{
+    margin-bottom: 0.2rem;
+    height: 0.6rem;
+    text-align: center;
+    margin-top: 0.5rem;
+    width: 4.21rem;
+    margin-left: 1.2rem;
+    display: block;
+    background: url("../images/bzjingpi/bz_xiao.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs/images/bzjingpi/bz_xiao.png*/ no-repeat;
+    background-size: 4.21rem 0.6rem;
+    cursor: pointer;
+    font-size: 0.32rem;
+    line-height: 0.6rem;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: 400;
+    color:rgba(241,145,73,1);
+}
+.liu{
+    margin: 0.3rem auto;
+    width:1.5rem;
+}
+.liu_cai{
+
+    padding: 0.17rem 0.3rem;
+    background:rgba(255,237,212,1);
+    border-radius:0.08rem;
+    font-size:0.28rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    margin:0 auto;
+    color:rgba(241,145,73,1);
+}
+.relout_url{
+    font-size: 0.28rem;
+}
+.comment_bgcolor_box{
+    background: none;
+    font-size: 0.28rem;
+}
+.tujie{
+    margin-top: 0.4rem;
+}
+.tujie img{
+    width:0.9rem;
+    margin-left: 0.28rem;
+}
+.jin{
+    font-size:0.28rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(29,32,35,1);
+    margin-left: 0.6rem;
+}
+.mu{
+    font-size:0.28rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(29,32,35,1);
+    margin-left:1rem;
+}
+.shui{
+    font-size:0.28rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(29,32,35,1);
+    margin-left:0.92rem;
+}
+.huo{
+    font-size:0.28rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(29,32,35,1);
+    margin-left:0.92rem;
+}
+.tu{
+    font-size:0.28rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(29,32,35,1);
+    margin-left:0.92rem;
+}
+.layui-btn{
+    background-color: #fa3e3e;
+    margin-bottom: 15px;
+}
+.nianfen{
+    display: inline-block;
+    background: rgba(255,237,212,1);
+    border-radius: 0.08rem;
+    width: 1.5rem;
+    height: 0.6rem;
+    margin-bottom: 0.4rem;
+    margin-left: 0.5rem;
+}
+.nianfen span {
+    font-size: 0.28rem;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: 400;
+    line-height: 0.6rem;
+    color: rgba(241,145,73,1);
+    padding: 0.17rem 0.3rem 0.17rem 0.4rem;
+}
+.yihun{
+    display: inline-block;
+    background: rgba(255,237,212,1);
+    border-radius: 0.08rem;
+    height: 0.6rem;
+    margin-bottom: 0.4rem;
+}
+.year{
+    font-size: 0.28rem;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: 400;
+    line-height: 0.6rem;
+    color: rgba(241,145,73,1);
+    padding: 0.17rem 0.2rem 0.17rem 0.2rem;
+}
+.yinxiang{
+    background:rgba(255,244,229,1);
+    border-radius:0.08rem;
+    height: 0.6rem;
+    display: inline-block;
+    width: 5.1rem;
+}
+.qing{
+    font-size: 0.24rem;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: 400;
+    padding: 0.18rem 0.2rem 0.18rem 0.2rem;
+    color: rgba(241,145,73,1);
+}
+.liu_year{
+    display: inline-block;
+    background: rgba(255,237,212,1);
+    border-radius: 0.08rem;
+    width: 1.5rem;
+    height: 0.6rem;
+    margin-bottom: 0.4rem;
+    margin-left: 0.5rem;
+}
+.nian_year{
+    font-size: 0.28rem;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: 400;
+    line-height: 0.6rem;
+    color: rgba(241,145,73,1);
+    padding: 0.17rem 0.3rem 0.17rem 0.4rem;
+}
+
+.text-container{
+    width: 100%;
+    box-sizing: border-box;
+overflow: hidden;
+    margin-bottom: 0.1rem;
+
+    position: relative;
+    padding-left:1rem;
+}
+
+.text-container .year-tag{
+    padding: 0.15rem 0.15rem 0.15rem 0.15rem;
+    font-size: 0.28rem;
+    line-height: 0.28rem;
+    background: rgba(255,237,212,1);
+    display:block;
+    /*float: left;*/
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(241,145,73,1);
+    border-radius:0.08rem;
+}
+
+.text-container .text{
+    font-size: 0.24rem;
+    line-height: 0.28rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(241,145,73,1);
+    padding: 0.15rem 0.1rem;
+    display:block;
+    border-radius:0.08rem;
+    text-align: center;
+    background: rgba(255,244,229,1);
+    border-radius:0.08rem;
+    /*float: left;*/
+}

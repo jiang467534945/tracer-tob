@@ -16,6 +16,8 @@ import java.util.List;
  */
 public interface BaseService<T>extends IService <T>{
     boolean save(T var1, UserVO userVO);
+    boolean save(T var1);
+
     boolean saveBatch(Collection<T> var1,UserVO userVO);
     @Override
     boolean saveOrUpdateBatch(Collection<T> var1);

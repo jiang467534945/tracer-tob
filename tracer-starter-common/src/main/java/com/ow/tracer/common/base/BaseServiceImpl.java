@@ -32,7 +32,13 @@ public class BaseServiceImpl < M extends BaseMapper<T>,T extends BaseDTO> extend
         entity.setDelFlag("0");
         return retBool(this.baseMapper.insert(entity));
     }
-
+    @Override
+    public boolean save(T entity) {
+        entity.setCreateDate(DateTime.now());
+        entity.setVersionNumber(0);
+        entity.setDelFlag("0");
+        return retBool(this.baseMapper.insert(entity));
+    }
     @Override
     public boolean saveBatch(Collection<T> var1, UserVO userVO) {
         var1.forEach((entity ->{
@@ -53,7 +59,7 @@ public class BaseServiceImpl < M extends BaseMapper<T>,T extends BaseDTO> extend
 //    @Cacheable(value = "getOne",keyGenerator = "caChekeyGenerator")
     @Override
 public T getOne(Wrapper<T> queryWrapper) {
-        return SqlHelper.getObject(this.baseMapper.selectList(queryWrapper));
+        return this.baseMapper.selectOne(queryWrapper);
     }
 //    @Caching(
 //            put = {
@@ -86,7 +92,13 @@ public T getOne(Wrapper<T> queryWrapper) {
         entity.setDelFlag("0");
         return super.updateById(entity);
     }
+    @Override
+    public boolean updateById(T entity) {
 
+        entity.setUpdateDate(DateTime.now());
+        entity.setDelFlag("0");
+        return super.updateById(entity);
+    }
     @Override
     public boolean update(T entity, Wrapper<T> updateWrapper,UserVO userVO) {
         entity.setUpdateBy(userVO.getId());

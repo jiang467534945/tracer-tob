@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>手机app通用模板手机银行支行主页介绍页面模板</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <link href="../static/css/daoshi.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!--
+
+* 17素材vip建站专区模块代码
+* 详尽信息请看官网：http://www.17sucai.com/pins/vip
+*
+* Copyright , 温州易站网络科技有限公司版权所有
+*
+* 请尊重原创，未经允许请勿转载。
+* 在保留版权的前提下可应用于个人或商业用途
+
+-->
+<section class="aui-flexView">
+    <header class="aui-navBar aui-navBar-fixed">
+        <a href="javascript:;" class="aui-navBar-item">
+            <i class="icon icon-return"></i>
+        </a>
+        <div class="aui-center">
+            <span class="aui-center-title"></span>
+        </div>
+        <a href="javascript:;" class="aui-navBar-item">
+            <i class="icon icon-more"></i>
+        </a>
+    </header>
+    <section class="aui-scrollView">
+        <div class="aui-bank-head">
+            <div class="aui-bank-logo">
+                <img  th:src="${baseModel.memberUser.avatarUrl}" alt="">
+                <span class="aui-bank-logo-vip">
+					<img src="../static/images/vip.png" alt="">
+				</span>
+            </div>
+            <div class="aui-bank-title">
+                <h2 th:text="${baseModel.tutor.name}">李明明</h2>
+                <p>导师</p>
+            </div>
+
+        </div>
+        <div class="aui-flex b-line">
+            <div class="aui-flex-box">
+                <p th:text="'微信号：'+${baseModel.tutor.message}">微信号: d_eiuyr</p>
+                <p>电话: <em th:text="${baseModel.tutor.phone}">010-849999999</em></p>
+                <p>地址: 所在城市</p>
+            </div>
+        </div>
+        <div class="aui-flex">
+            <div class="aui-flex-box">
+                <button>扫描二维码添加好友</button>
+            </div>
+        </div>
+        <div class="divHeight"></div>
+        <div class="aui-bank-list" style="text-align: center; ">
+            <img th:src="${baseModel.tutor.image}" style="margin: 0 auto;">
+        </div>
+
+    </section>
+</section>
+</body>
+
+</html>

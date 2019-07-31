@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>tracer-starter-admin</artifactId>
+        <groupId>com.ow</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>tracer-admin-account</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>tracer-admin-account-mapper</module>
+        <module>tracer-admin-account-service</module>
+        <module>tracer-admin-account-dto</module>
+        <module>tracer-admin-account-rest</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.ow</groupId>
+            <artifactId>tracer-starter-common</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+
+</project>

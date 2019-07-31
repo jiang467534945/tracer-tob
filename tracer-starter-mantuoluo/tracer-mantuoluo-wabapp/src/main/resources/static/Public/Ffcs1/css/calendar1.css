@@ -1,0 +1,246 @@
+.date_btn,.date_grid {
+    box-sizing: border-box
+}
+
+.date_btn,.date_class,.gear {
+    cursor: pointer
+}
+
+.date_btn,.date_class,.date_class_box,.date_info_box,.tooth {
+    text-align: center
+}
+
+.gearDate {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 10px;
+    background-color: rgba(0,0,0,0.7);
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10001;
+    overflow: hidden;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+.date_ctrl {
+    vertical-align: middle;
+    background-color: #ffffff;
+    border: 1px solid #a5a5a5;
+    /*border-radius: 5px;*/
+    color: #999999;
+    margin: 0;
+    height: auto;
+    width: 100%;
+    max-width: 600px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    z-index: 10002;
+    overflow: hidden;
+    -webkit-transform: translate(-50%,0);
+    transform: translate(-50%,0);
+    -ms-transform: translate(-50%,0);
+    -moz-transform: translate(-50%,0)
+}
+
+.date_roll,.date_roll>div {
+    background-color: transparent;
+    overflow: hidden
+}
+
+.date_info_box {
+    /*border-bottom: 1px solid #d4d4d4*/
+}
+
+.slideInUp {
+    animation: slideInUp 0.1s linear;
+    -webkit-animation: slideInUp 0.1s linear
+}
+
+@-webkit-keyframes slideInUp {
+    from {
+        -webkit-transform: translate(-50%,100%);
+        transform: translate(-50%,100%);
+        -moz-transform: translate(-50%,100%);
+        -ms-transform: translate(-50%,100%);
+        -o-transform: translate(-50%,100%)
+    }
+
+    to {
+        -webkit-transform: translate(-50%,0);
+        transform: translate(-50%,0);
+        -moz-transform: translate(-50%,0);
+        -o-transform: translate(-50%,0);
+        -ms-transform: translate(-50%,0)
+    }
+}
+
+.date_roll {
+    position: relative;
+    width: 100%;
+    height: auto;
+    font-weight: 400;
+    -webkit-mask: -webkit-gradient(linear,0 50%,0 100%,from(#f7f7f7),to(rgba(36,142,36,0)));
+    -webkit-mask: -webkit-linear-gradient(top,#f7f7f7 50%,rgba(36,142,36,0))
+}
+
+.date_roll>.date_date {
+    font-size: 1.8em;
+    height: 10em;
+    float: left;
+    position: relative;
+    width: 22%
+}
+.date_roll>.date_time {
+    font-size: 1.8em;
+    height: 10em;
+    float: left;
+    position: relative;
+    width: 34%
+}
+.date_roll_mask {
+    padding: 0 0;
+    background-color: #f7f7f7;
+    /*-webkit-mask: -webkit-gradient(linear,0 40%,0 0,from(#debb47),to(rgba(36,142,36,0)));
+    -webkit-mask: -webkit-linear-gradient(bottom,#debb47 50%,rgba(36,142,36,0))*/
+}
+
+.date_grid {
+    position: relative;
+    top: 4em;
+    width: 100%;
+    height: 2em;
+    margin: 0;
+    z-index: 0;
+    background-color: #ffffff;
+    border-top: 1px solid #fafafa
+}
+
+.date_grid>div {
+    color: #000;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: .8em;
+    line-height: 2.5em
+}
+
+.date_info_box {
+    color: #797979;
+    font-size: 1.5em;
+    padding: .6em 0.5em;
+    font-weight: 300;
+}
+
+.date_class_box {
+    padding: 1em 2em 1em 2em
+}
+
+.date_class {
+    display: inline-block;
+    font-size: 1.4em;
+    width: 30%;
+    padding: .4em 0;
+    color: #ff6665;
+    border: 1px solid #ff6665
+}
+
+.date_class_box .date_class:first-child {
+    border-top-left-radius: .3em;
+    border-bottom-left-radius: .3em
+}
+
+.date_class_box .date_class:last-child {
+    border-top-right-radius: .2em;
+    border-bottom-right-radius: .2em
+}
+
+.date_class_box .active {
+    background-color: #ff6665;
+    color: #fff
+}
+
+.date_btn_box {
+    overflow: hidden;
+    position: relative;
+    border-top: 1px solid #d4d4d4
+}
+
+.date_btn {
+    color: #1D2023;
+    font-size: 1.6em;
+    line-height: 1em;
+    padding: 1.2em 1em;
+    float: left;
+    width: 50%
+}
+
+.date_btn:first-child {
+    border-right: 1px solid #d4d4d4
+}
+
+.gear {
+    float: left;
+    position: absolute;
+    z-index: 10002;
+    width: 5.5em;
+    margin-top: -6em
+}
+
+.date_roll>div .gear {
+    width: 100%
+}
+
+.tooth {
+    color: #999999;
+    height: 2em;
+    line-height: 2em
+}
+.tooth_active{
+    color: #ff6665;
+}
+.lcalendar_finish {
+    color: #ff6665;
+}
+.gearDate .bg{
+    background-color: rgba(0,0,0,0);
+    width: 100%;
+    height: 100%;
+}
+.lcalendar_commit{
+    color: #EE3F4D;
+}
+.show-commit-view{
+    color: #EE3F4D;
+}
+.quren-title{
+    /*border-bottom: 1px #e6e6e6 solid;*/
+    font-size: 2em;
+    color: #EE3F4D !important;
+    padding: 1em 0;
+}
+.commit-tishi{
+    color: #999999;
+    font-size: 1.1em;
+    margin: 0.2em 0 0.8em 0;
+}
+.date-queren{
+    color: #1D2023;
+    text-align: left;
+    margin: 0.5em;
+    margin-left: 2em;
+    font-size: 1.3em;
+}
+.show-commit-info{
+    height: 10em;
+}
+.lcalendar_show_gongli,.lcalendar_show_nongli{
+    color: #EE3F4D;
+}
+.showview{
+    text-align: center;
+}

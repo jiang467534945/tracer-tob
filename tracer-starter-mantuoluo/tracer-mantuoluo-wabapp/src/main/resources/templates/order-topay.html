@@ -1,0 +1,1787 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset=utf-8"UTF-8"/>
+    <title>幸福导师支付页 - </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <link href="../static/Public/Ffcs1/layui/css/layui.css" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/layui/css/layui.css" rel="stylesheet" type="text/css"/>
+    <link href="../static/Public/Ffcs1/css/base.css" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/css/base.css" rel="stylesheet" type="text/css"/>
+    <script src="../static/Public/Ffcs1/js/fit_mobile_750.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/js/fit_mobile_750.js"></script>
+    <link href="../static/Public/Ffcs1/css/calendar1.css" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/css/calendar1.css" rel="stylesheet" type="text/css"/>
+    <link href="../static/Public/Ffcs1/css/order_pay1.css" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/css/order_pay1.css" rel="stylesheet" type="text/css"/>
+    <!--<link href="//imgffcs.smxs.com/Public/Ffcs1/css/qiming.css" rel="stylesheet" type="text/css"/>-->
+
+    <style>
+
+
+        .user{
+            box-shadow: 0px 6px 10px 0px rgba(238,63,77,0.1);
+            background: #ffffff;
+            padding-bottom: 0.15rem;
+        }
+        .user i{width:0.25rem;
+            padding: 0.3rem 0 0.3rem 0;
+            clear: both;
+            height:0.24rem;}
+        .content{
+            padding: 0.3rem 0 0.3rem 0;
+            height: 0.31rem;
+        }
+        .user p{ clear: both;
+            color: #999999;
+            padding-bottom: 0.3rem;
+            font-size: 0.28rem;
+        }
+
+        .product-title{
+            background-size: 100% 0.9rem;
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-image: url("../static/Public/Ffcs1/css/img/payorder/order-head.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/payorder/order-head.png*/;
+            height: 0.9rem;
+            border-top-left-radius: 0.1rem;
+            border-top-right-radius: 0.1rem;
+        }
+
+
+        .select-btn, .select-btn{
+            float: left;
+            margin-top: 0.75rem;
+            width: 0.35rem;
+            height: 0.35rem;
+            background-size: 0.35rem 0.35rem;
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-image: url("../static/Public/Ffcs1/css/img/payorder/product-unselect.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/payorder/product-unselect.png*/;
+        }
+        .selected{
+            background-image: url("../static/Public/Ffcs1/css/img/payorder/product-select.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/payorder/product-select.png*/ !important;
+            box-shadow:0px 4px 4px 0px rgba(238,63,77,0.2);
+            border-radius:50%;
+        }
+
+        .view-num{
+            padding-left: 0.5rem;
+            padding-right: 0.1rem;
+            background-size: 0.30rem 0.30rem;
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-image: url("../static/Public/Ffcs1/css/img/payorder/product-view.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/payorder/product-view.png*/;
+        }
+        .love-num{
+            padding-left: 0.4rem;
+            background-size: 0.30rem 0.30rem;
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-image: url("../static/Public/Ffcs1/css/img/payorder/product-love.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/payorder/product-love.png*/;
+        }
+
+        .wxpay{
+            border: unset;
+            width: 5.9rem;
+            height: .91rem;
+            border-radius: .45rem;
+            background-image: url("../static/Public/Ffcs1/css/img/shuimogufeng/wxpay.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/shuimogufeng/wxpay.png*/;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+        .alipay{
+            border: unset;
+            width: 5.9rem;
+            height: .91rem;
+            border-radius: .45rem;
+            margin-left: 0!important;
+            margin-top: .3rem;
+            background-image: url("../static/Public/Ffcs1/css/img/shuimogufeng/alipay.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/shuimogufeng/alipay.png*/;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+
+
+        .jieyuan{
+            padding-left: 0.28rem;
+        }
+        /*.order-info{
+
+            height: 300px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }*/
+
+        .bao{
+            float: right;
+            padding: 0 0.2rem;
+            padding-bottom: 0.2rem;
+            color: #999999;
+        }
+        .jie{
+            color: #000;
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+
+    </style>
+</head>
+<body onLoad="timeCounter('daojishi')">
+<input type="hidden" id="orderid" value="2019053114YSBHPBKMRLSC">
+<style>
+    .subhead_cesuan{
+        display: block;
+        width: 100%;
+        height: 40px;
+        background:rgba(0,0,0,1);
+        opacity:0.7;
+    }
+    .page_header{  font-size: 12px;}
+    .ljlq, .btn-ljck{
+        width: 80px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 13px;
+        float: right;
+        padding: unset;
+        margin-top: 5px;
+        border-radius: 6px;
+        margin-bottom: unset;
+        margin-right: 2px;
+        color: #ffffff;
+        border:1px solid #ffffff;
+        background-color: unset;
+    }
+    .gonggao{
+        width: 20px;
+        height: auto;
+        margin-top: 10px;
+        margin-left: 9px;
+        float: left;
+    }
+    .zymj_title{
+        display: none;
+        color: #fff;
+        display: inline-block;
+        float: left;
+        height: 30px;
+        font-size: 14px;
+        line-height: 30px;
+        margin-top: 5px;
+        width: 190px;
+        margin-left: 6px;
+        white-space: nowrap;
+        animation:8s wordsLoop infinite;
+        animation-timing-function:linear;
+        -webkit-animation-timing-function:linear; /* Safari 和 Chrome */
+        overflow: hidden;
+    }
+    @keyframes wordsLoop {
+        0% {
+            transform: translateX(190px);
+            -webkit-transform: translateX(190px);
+        }
+        100% {
+            transform: translateX(-190px);
+            -webkit-transform: translateX(-190px);
+        }
+    }
+
+    @-webkit-keyframes wordsLoop {
+        0% {
+            transform: translateX(190px);
+            -webkit-transform: translateX(190px);
+        }
+        100% {
+            transform: translateX(-190px);
+            -webkit-transform: translateX(-190px);
+        }
+    }
+    .subhead_close{
+        height: 40px;
+        width: 40px;
+        float: right;
+        display: block;
+        background-image: url("../static/Public/Ffcs1/css/img/close.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/close.png*/;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 10px 10px;
+    }
+    .zymj_gzh_cover,
+    .act190308_cover {
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        background:rgba(0,0,0,1);
+        opacity:0.7;
+        z-index: 99;
+    }
+    .zymj_gzh {
+        display: none;
+        width: 350px;
+        height: 410px;
+        z-index: 1001;
+        position: fixed;
+        left: 50%;
+        margin-left: -175px;
+        top: 50%;
+        margin-top: -215px;
+        background-image: url("../static/Public/Ffcs1/css/img/background.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/background.png*/;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+    .act190308 {
+        display: none;
+        width: 360px;
+        height: 430px;
+        z-index: 1001;
+        position: fixed;
+        left: 50%;
+        margin-left: -180px;
+        top: 50%;
+        margin-top: -215px;
+        background-image: url("../static/Public/Ffcs1/images/act190308/tanchuang.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/images/act190308/tanchuang.png*/;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+    .zymj_gzh p {
+        text-align: center;
+        font-size: 13px;
+        color: #C3272B;
+    }
+    .zymj_gzh_inside {
+        font-family: "KaiTi";
+        width:300px;
+        height:auto;
+        padding: 6px 0;
+        text-align: center;
+        background:rgba(255,255,255,.4);
+        border-radius:10px;
+        margin: 0 auto;
+        margin-top: 250px;
+    }
+    .zymj_gzh_inside p {
+        opacity: 1;
+        color: #C3272B;
+        font-size: 16px;
+    }
+    .zymj_gzh_number {
+        width: 100px;
+        height: 30px;
+        display: inline-block;
+        background-color: #ffffff;
+        color: #C3272B;
+        margin: 10px auto;
+        border-radius: 4px;
+        line-height: 30px;
+    }
+    .zymj_gzh_copy {
+        width: 100px;
+        height: 30px;
+        background-color: #C3272B;
+        color: #ffffff;
+        border-radius: 4px;
+        line-height: 30px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+    .zymj_gzh_close,
+    .act190308_close {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-image: url("../static/Public/Ffcs1/css/img/close2.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/close2.png*/;
+        background-repeat: no-repeat;
+        background-size: 20px 20px;
+        background-position: center;
+    }
+    .act190308_goto_wechat {
+        width: 300px;
+        height: 80px;
+        position: absolute;
+        right: 30px;
+        top: 300px;
+        background-image: url("../static/Public/Ffcs1/images/act190308/goto_wechat.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/images/act190308/goto_wechat.png*/;
+        background-repeat: no-repeat;
+        background-size: 150px 40px;
+        background-position: center;
+    }
+    .head_kefu{
+        position: absolute;
+        height: 25px;
+        line-height: 25px;
+        border: 1px solid #e49d6d;
+        border-radius: 5px;
+        padding: 0 5px;
+        display: block;
+        color: #e49d6d;
+        right: 90px;
+        top: 9px;
+    }
+    .copy_success{
+        display: none;
+        width: 340px;
+        height: 480px;
+        z-index: 1001;
+        position: fixed;
+        left: 50%;
+        margin-left: -170px;
+        top: 50%;
+        margin-top: -240px;
+        background-color: #ffffff;
+        border-radius: 10px;
+    }
+    .wx-caozuojpg{
+        width: 300px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    .dakai-wx{
+        width: 320px;
+        text-align: center;
+        font-size: 15px;
+        margin: 0 auto;
+    }
+    #zymj_go_gzh{
+        width: 300px;
+        height: 40px;
+        display: block;
+        margin: 0 auto;
+        background-color: unset;
+        background-image: url("../static/Public/Ffcs1/css/img/shuimogufeng/open_wechat.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/shuimogufeng/open_wechat.png*/;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+    .copy_title{
+        font-size: 22px;
+        text-align: center;
+        margin-top: 26px;
+        font-weight: bolder;
+        margin-bottom: 10px;
+    }
+    .header-title-left, .header-title-right{
+        height: 30px;
+        margin-top: 7px;
+        width: 20px;
+        position: absolute;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        background-image: url("../static/Public/Ffcs1/css/img/bzjingpi/header_title_left.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/bzjingpi/header_title_left.png*/;
+    }
+    .header-title-left{
+        margin-left: -20px;
+    }
+    .header-title-right{
+        transform: rotate(180deg);
+        background-image: url("../static/Public/Ffcs1/css/img/bzjingpi/header_title_left.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/bzjingpi/header_title_left.png*/;
+    }
+    .header_tit{
+        line-height: 30px;
+        height: 30px;
+        padding: 0 5px;
+        background-repeat: repeat-x;
+        background-size: contain;
+        background-position: center;
+        background-image: url("../static/Public/Ffcs1/css/img/bzjingpi/header_title_center.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/bzjingpi/header_title_center.png*/;
+    }
+    .header_fankui{
+        position: absolute;
+        height: 25px;
+        line-height: 25px;
+        border: 1px solid #EE3F4D;
+        border-radius: 5px;
+        padding: 0 0.1rem;
+        display: block;
+        color: #EE3F4D;
+        right:80px;
+        top: 9px;
+    }
+    ::-webkit-scrollbar {
+        display: none;
+    }
+</style>
+
+<!--<header class="page_header">-->
+<!--<h1 class="header_tit">幸福导师</h1>-->
+<!--<a class="header_home" href="/wap/index"></a>-->
+<!--<span class="head_kefu">客服</span>-->
+<!--<a href="/order/query/" class="header_menu">历史订单</a>-->
+<!--</header>-->
+<header class="page_header" style="text-align: center;">
+    <p style="height: 100%;">
+        <span class="header-title-left" ></span>
+        <span class="header_tit" style="display: inline-block;margin: 7px 0;">幸福导师</span>
+        <span class="header-title-right" ></span>
+    </p>
+    <a class="header_home" href="javascript:if(confirm('https://ffcs.smxs.com/  \n\n   ļ  ޷    Teleport Ultra     ,   Ϊ     һ      ·   ⲿ      Ϊ      ʼ  ַ ĵ ַ    \n\n     ڷ      ϴ     ?'))window.location='https://ffcs.smxs.com/'" tppabs="https://ffcs.smxs.com/"></a>
+    <a class="header_fankui" style="float: right" href="javascript:if(confirm('https://ffcs.smxs.com/user/faq  \n\n   ļ  ޷    Teleport Ultra     ,   Ϊ     һ      ·   ⲿ      Ϊ      ʼ  ַ ĵ ַ    \n\n     ڷ      ϴ     ?'))window.location='https://ffcs.smxs.com/user/faq'" tppabs="https://ffcs.smxs.com/user/faq">反馈</a>
+    <a href="javascript:if(confirm('https://ffcs.smxs.com/order/query/  \n\n   ļ  ޷    Teleport Ultra     ,   Ϊ     һ      ·   ⲿ      Ϊ      ʼ  ַ ĵ ַ    \n\n     ڷ      ϴ     ?'))window.location='https://ffcs.smxs.com/order/query/'" tppabs="https://ffcs.smxs.com/order/query/" class="header_menu">历史订单</a>
+</header><div class="zymj_gzh_cover">
+</div>
+<div class="zymj_gzh">
+    <div class="zymj_gzh_close"></div>
+    <div class="zymj_gzh_inside">
+        <p>前往[]微信公众号领取</p>
+        <span class="zymj_gzh_number">smxsgw</span>
+        <div class="zymj_gzh_copy" id="zymj_gzh_copy">点击复制</div>
+    </div>
+    <p style="margin-top: 8px">在公众号输入“助运秘籍”领取</p>
+</div>
+<div class="copy_success">
+    <div class="zymj_gzh_close"></div>
+    <p class="copy_title">复制成功</p>
+    <p class="dakai-wx">打开微信，点击右上角“<span style="color: #00C204">+</span>”，再点击“<span style="color: #00C204">添加朋友</span>”，选择“<span style="color: #00C204">公众号</span>”粘贴</p>
+    <img class="wx-caozuojpg" src="../static/Public/Ffcs1/images/shuimogufeng/wx_caozuo.jpg" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/images/shuimogufeng/wx_caozuo.jpg">
+    <button class="layui-btn" id="zymj_go_gzh"></button>
+</div>
+<div class="act190308_cover">
+</div>
+<div class="act190308">
+    <div class="act190308_close"></div>
+    <div class="act190308_goto_wechat" data-method="gzh_guide_pop" id="goto_wechat"></div>
+</div>
+
+<script src="../static/Public/Ffcs1/js/clipboard.min.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/js/clipboard.min.js"></script>
+<script src="../static/Public/Ffcs1/external/js/jquery-2.0.3.min.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/external/js/jquery-2.0.3.min.js"></script>
+<script>
+    $(".head_kefu").click(function () {
+        $(".add_assistant,.add_assistant_cover").fadeIn(200);
+    });
+    $(".subhead_close").click(function () {
+        $(".subhead_cesuan").hide();
+    });
+    $(".ljlq").click(function () {
+        $(".zymj_gzh,.zymj_gzh_cover").fadeIn(200);
+    });
+    $(".zymj_gzh_close,.zymj_gzh_cover").click(function () {
+        $(".zymj_gzh,.zymj_gzh_cover,.copy_success").hide();
+    });
+    $(".btn-ljck").click(function () {
+        $(".act190308,.act190308_cover").fadeIn(200);
+    });
+    $(".act190308_close,.act190308_cover").click(function () {
+        $(".act190308,.act190308_cover").hide();
+    });
+    var clipboard11 = new Clipboard('#zymj_gzh_copy', {
+        text: function() {
+            return 'smxsgw';
+        }
+    });
+    var clipboard13 = new Clipboard('#goto_wechat', {
+        text: function() {
+            return 'smxsgw';
+        }
+    });
+    $("#goto_wechat").click(function(){
+        $(".act190308,.act190308_cover").fadeOut(200);
+        $("#gzh-cover,#gzh-service").fadeIn(200);
+    });
+    $("#zymj_gzh_copy").click(function(){
+        // layui.layer.msg("复制成功",{icon:6});
+        $(".zymj_gzh").hide();
+        $(".copy_success").fadeIn(300);
+    });
+    $("#zymj_go_gzh").click(function(){
+        window.location.href='weixin://';
+    });
+</script>
+
+<style>
+    .service-cover{
+        display: none;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        position: fixed;
+        background-color:rgba(25,25,25,0.85);
+    }
+    .custom-service{
+        display: none;
+        position: fixed;
+        width: 360px;
+        height: 550px;
+        top: 50%;
+        left: 50%;
+        color: #333333;
+        font-size: 14px;
+        margin-top: -260px;
+        margin-left: -180px;
+        background-color: #ffffff;
+        z-index: 9999;
+        border-radius: 5px;
+    }
+    .custom-service a{
+        color: #00A0E9;
+    }
+    .custom-service .service-inside{
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+    .custom-service .close{
+        position: absolute;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        background-image: url("../static/Public/Ffcs1/css/img/shuimogufeng/close.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/shuimogufeng/close.png*/;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 20px 20px;
+    }
+    .custom-service .s-title{
+        margin-top: 0.6rem;
+        font-size: 0.45rem;
+    }
+    .custom-service .service-title{
+        text-align: center;
+        font-size: 24px;
+        font-weight: bolder;
+        margin: 10px auto;
+    }
+    .custom-service .wx-caozuojpg{
+        width: 100%;
+        display: block;
+        margin:0 auto;
+    }
+    .custom-service .dakai-wx{
+        font-size: 16px;
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+    }
+    .custom-service .layui-btn{
+        width: 220px;
+        height: 40px;
+        margin: 0 auto;
+        display: block;
+        background-color: #00C204;
+        margin-top: 0;
+        background-image: url("../static/Public/Ffcs1/css/img/shuimogufeng/open_wechat.png")/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/css/img/shuimogufeng/open_wechat.png*/;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size:contain;
+    }
+</style>
+<div class="service-cover" id="gzh-cover"></div>
+<div class="custom-service" id="gzh-service">
+    <div class="close" id="gzh-close"></div>
+    <div class="service-inside">
+        <p class="service-title s-title">复制成功</p>
+        <p class="dakai-wx">打开微信，点击右上角“<span style="color: #00C204">+</span>”，再点击“<span style="color: #00C204">添加朋友</span>”，选择“<span style="color: #00C204">公众号</span>”粘贴</p>
+        <img class="wx-caozuojpg" src="../static/Public/Ffcs1/images/shuimogufeng/wx_caozuo.jpg" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/images/shuimogufeng/wx_caozuo.jpg">
+        <button class="layui-btn" id="gowechat2"></button>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#gzh-close,#gzh-cover").click(function () {
+            $("#gzh-service").css("display","none");
+            $("#gzh-cover").css("display","none");
+        })
+        $("#gowechat2").click(function(){
+            setTimeout(function(){
+                window.location.href='weixin://';
+            },300);
+        });
+    });
+</script>
+
+
+<div class="pay_cover1">
+</div>
+<div class="pay_cover2">
+</div>
+<div class="banner">
+    <img style="width: 7.5rem; height: 2rem; " align="center"  src="../static/Public/Ffcs1/images/order_pay_banner.png" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/images/order_pay_banner.png">
+</div>
+<div class="orderinfo order" order-amount="88">
+    <div class="product-title">
+        <img class="order-icon" src="../static/Public/Ffcs1/images/icon_bzjingpi.png" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/images/icon_bzjingpi.png">
+        <span class="order-product"> 幸福导师 </span>
+    </div>
+    <div class="user" id="user-7262324" data-id="7262324" data-sex="1" data-birthday="1980-02-16 00:00:00">
+        <p class="content" style="text-align: center;position: relative;">
+            <span class="zhuzi"></span><a class="user-title">咨询用户</a>
+ </p>
+        <p>
+            <span class="xing"> 姓名：</span><span class="user-info-val"><span id="username-7262324" th:text="${consultation.name}">江雪立刘梦</span>（<span id="sex-7262324">男</span>）</span>
+        </p>
+        <p >
+            <span class="xing">生辰：</span><span class="user-info-val" id="gongli-7262324" th:text="${consultation.birthDay}">1980年 02 月 16 日 00时（公历）</span>
+        </p>
+        <p >
+            <span class="xing">生命数：</span><span class="user-info-val" id="gongli-7262324" th:text="${consultation.birthNum}">1980年 02 月 16 日 00时（公历）</span>
+
+        </p>
+        <p>
+            <span class="xing">手机号：</span>
+            </span><span class="user-info-val" id="gongli-7262324" th:text="${memberUser.openId}">1980年 02 月 16 日 00时（公历）</span>
+            <!--<span class="user-info-val" id="gongli-7262324" th:text="${consultation.birthNum}">1980年 02 月 16 日 00时（公历）</span>-->
+            <input type="hidden" id="phone" th:value="${memberUser.openId}" />
+
+        </p>
+    </div>
+
+
+    <div id="tupian"><img style="width:7.1rem;height: 0.5rem" src="../static/Public/Ffcs1/images/order_cen.png" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/images/order_cen.png"></div>
+
+
+    <div class="order-info" >
+        <p style="height: 0.31rem;"><span class="zhuzi"></span><a class="user-title">订单信息</a></p>
+        <p style="margin-bottom: 0.5rem">
+            <span id="jie" class="jieguo">结果包含：</span><span class="order-info-val" th:text="${baseModel.payConsultaion.orderName}"></span>
+        </p>
+        <p class="order-line"></p>
+        <p style="padding-left: 0.28rem;">距离优惠结束：<span id="daojishi" style="text-align: right;padding-right: 0.2rem;float: right;color: #EE3F4D"></span></p>
+
+        <p class="jieyuan">幸运价：<span class="order-info-val right-price red" style="text-align: right;color: #999999;" id="jieyuan" data-jieyuan="88"><span class="lijian">(优惠立减100元)</span>
+        <span class="qiancai qian" th:text="${baseModel.payConsultaion.totalFee}">
+            <span style="font-weight: bold;font-size: 0.24rem">¥</span>
+            88</span>
+        <span class="cesuan hidden" data-price="88" ><span style="font-weight: bold;font-size: 0.24rem">¥</span>
+            <span class="jiaqian"  th:text="${baseModel.payConsultaion.totalFee}">88</span></span></span></p>
+
+        </p>
+
+        <p class="order-line"></p>
+
+    </div>
+
+    <div class="order-bottom">
+        <img src="../static/Public/Ffcs1/css/img/payorder/order-bottom.png" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/css/img/payorder/order-bottom.png">
+    </div>
+</div>
+<div class="youhui" style="background: #ffffff;display: none">
+    <p>
+        <span class="tishi"></span> <span class="red-button">限时优惠</span>
+        <span class="dazhe_youhui" > 测算两单打9折；三单以上打8折</span>
+    </p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div style="height: 1rem"></div>
+<div class="pay_block">
+    <img class="pay_close" src="../static/Public/Ffcs1/images/shuimogufeng/pay_close.png" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/images/shuimogufeng/pay_close.png">
+    <p class="pay_title1">选择支付方式</p>
+    <p class="pay_title2">&nbsp;</p>
+    <div class="pay_way">
+        <button class="layui-btn layui-btn-primary wxpay" data-id="weixin"></button>
+        <button class="layui-btn layui-btn-primary alipay" data-id="alipay"></button>
+    </div>
+    <img class="safety2" src="../static/Public/Ffcs1/images/shuimogufeng/safety2.png" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/images/shuimogufeng/safety2.png">
+    <p class="green">支付系统已经过安全联盟认证请放心使用</p>
+</div>
+
+
+
+
+
+<footer class="pay-foot">
+
+    <div class="heji">
+        <span>¥</span><span class="allmoney" th:text="${baseModel.payConsultaion.totalFee}">88</span>
+    </div>
+
+    <span style="height:0.6rem;margin-top:0.2rem;border-left:1px solid #E5E5E5;margin-left: 0.19rem; float: left">&nbsp;</span>
+    <div style="float: left;">
+        <span class="price1" id="youhui1">已为您节省：¥0</span>
+
+
+    </div>
+
+    <div class="pay-btn">
+        立即支付<span class="pay-btn-num"></span>
+    </div>
+
+</footer>
+
+<style>
+    #ispay_pop .unpay{
+        width: 40%;
+        display: inline-block;
+        background-color: #AAAAAA;
+        margin-bottom: 15px;
+        font-size: 20px;
+        line-height: 40px;
+        height: 40px;
+    }
+    #ispay_pop .payed{
+        width: 40%;
+        display: inline-block;
+        margin-bottom: 15px;
+        background-color: #FF4B4B;
+        font-size: 20px;
+        line-height: 40px;
+        height: 40px;
+    }
+    #ispay_pop .title{
+        text-align: center;
+    }
+</style>
+<div id="ispay_pop" data-tag="" style="display:none;">
+    <div class="title tac">&nbsp;</div>
+    <div class="title tac red">提示</div>
+    <div class="title tac tip" style="margin-top: 20px;font-size: 20px;">是否已完成支付?</div>
+    <div style="width: 100%;margin-top: 20px;text-align: center;">
+        <button class="layui-btn layui-btn-radius unpay" onclick="unpay();" >未完成</button>
+        <button class="layui-btn layui-btn-radius payed" payresult="" onclick="payed();" >已完成</button>
+    </div>
+</div>
+<input type="hidden" value="2" id="check_order_num">
+<script src="../static/Public/Ffcs1/external/js/jquery-2.0.3.min.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/external/js/jquery-2.0.3.min.js"></script>
+<script src="../static/Public/Ffcs1/js/jquery.cookie.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/js/jquery.cookie.js"></script>
+<script >
+
+    function payed() {
+        layui.layer.msg("正在为您跳转", {icon:6, time:10000});
+        setTimeout(function(){
+            var payresult = $(".payed").attr("payresult");
+            if (payresult){
+                // $(".payed").attr("payresult", "");
+                location.href = payresult;
+                return true;
+            }
+            location.reload();
+        }, 1000);
+    }
+
+    function unpay(){
+        layui.layer.closeAll("page");
+    }
+
+
+    setInterval(function(){
+        var check_order_num = $("#check_order_num").val();
+        if (check_order_num <= 0){
+            return false;
+        }
+        check_order_num--;
+        $("#check_order_num").val(check_order_num);
+        checkOrderStatus();
+    }, 1000);
+
+</script>
+
+<script src="../static/Public/Ffcs1/external/js/jquery-2.0.3.min.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/external/js/jquery-2.0.3.min.js"></script>
+<script >
+
+    function changepayed1() {
+        $('#change_message_pop .payed').attr('disabled', true);
+        var cm_xing = $("input[name='cm_xing1']").val();
+        var cm_sex = $("input[name='sex1']:checked").val();
+        var b_input = $("#b_input1").val();
+        var cm_orderid = $("input[name='orderid1']").val();
+
+        if(cm_xing == ''){
+            layui.layer.msg("姓氏不能为空", {icon:5});
+            return false;
+        }
+
+        var postData = {orderid : cm_orderid, username: cm_xing, birthday: b_input ,sex:cm_sex};
+        $.post("/zyqm/changeMessage2", postData, function(result){
+            $('#change_message_pop .payed').removeAttr('disabled');
+            layui.layer.closeAll("page");
+            if (result.status == 1){
+                window.location.reload();
+                layui.layer.msg(result.msg, {icon:6});
+            }else{
+                layui.layer.msg(result.msg, {icon:5});
+            }
+        }, "json");
+
+    }
+
+    function changeunpay(){
+        layui.layer.closeAll("page");
+    }
+
+</script>
+
+<script src="../static/Public/Ffcs1/external/js/jquery-2.0.3.min.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/external/js/jquery-2.0.3.min.js"></script>
+<script >
+
+    function changepayed() {
+        $('#change_message_pop.payed').attr('disabled', true);
+        var cm_xing = $("input[name='cm_xing']").val();
+        var cm_sex = $("input[name='sex']:checked").val();
+        var b_input = $("#b_input2").val();
+        var cm_orderid = $("input[name='orderid']").val();
+        if(cm_xing == ''){
+            layui.layer.msg("姓氏不能为空", {icon:5});
+            return false;
+        }
+
+        var postData = {orderid : cm_orderid, username: cm_xing, birthday: b_input ,sex:cm_sex};
+        $.post("/zyqm/changeMessage2", postData, function(result){
+            $('#change_message_pop .payed').removeAttr('disabled');
+            layui.layer.closeAll("page");
+            if (result.status == 1){
+                window.location.reload();
+                layui.layer.msg(result.msg, {icon:6});
+            }else{
+                layui.layer.msg(result.msg, {icon:5});
+            }
+        }, "json");
+
+    }
+
+    function changeunpay(){
+        layui.layer.closeAll("page");
+    }
+
+</script>
+<script src="../static/Public/Ffcs1/layui/layui.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/layui/layui.js"></script>
+<script src="../static/Public/Ffcs1/js/calendar1.min.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/js/calendar1.min.js"></script>
+<script src="../static/Public/Ffcs1/external/js/jquery-2.0.3.min.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/external/js/jquery-2.0.3.min.js"></script>
+<script src="../static/Public/Ffcs1/js/jquery.kxbdmarquee1.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/js/jquery.kxbdmarquee.js"></script>
+<script src="../static/Public/Ffcs1/js/clipboard.min.js" tppabs="https://imgffcs.smxs.com/Public/Ffcs1/js/clipboard.min.js"></script>
+
+<script>
+
+    $(function () {
+
+        var jiage = $('#order-price').attr('data-jiage');
+        var youhui =$('#order-price').attr('data-youhui');
+        var zhesuan = parseInt(jiage) - parseFloat(youhui)
+        $('.lijian').text('(优惠立减'+parseFloat(zhesuan)+'元)')
+        $('#youhui').text('-¥'+zhesuan)
+
+
+    })
+
+    //支付页修改信息页面弹出
+    var active2 = {
+        change_message_pop1: function(){
+            // 支付弹出层
+            layer.open({
+                type: 1
+                ,title: '' // 不显示标题栏
+                ,closeBtn: false
+                ,shadeClose: false
+                ,area: "5.9rem;border-radius: 0.1rem;"
+                ,shade: 0.6
+                ,id: 'CHANGE_MESSAGE_POPUP' //设定一个id，防止重复弹出
+                ,moveType: 1 //拖拽模式，0或者1
+                ,content: jQuery('#change_message_pop')
+            });
+        }
+    };
+    jQuery('.change_pop').on('click', function(){
+        var othis = jQuery(this), method = othis.data('method');
+        active2[method] ? active2[method].call(this, othis) : '';
+    });
+
+    $("#cover,.close").click(function () {
+        $("#cover").css("display","none");
+        $(".go-wx").css("display","none");
+    });
+
+</script>
+<script>
+
+
+
+    //支付页修改信息页面弹出
+    var active3 = {
+        change_message_pop2: function(){
+            // 支付弹出层
+            layer.open({
+                type: 1
+                ,title: '' // 不显示标题栏
+                ,closeBtn: false
+                ,shadeClose: false
+                ,area: "5.9rem;border-radius: 0.1rem;"
+                ,shade: 0.6
+                ,id: 'CHANGE_MESSAGE_POPUP' //设定一个id，防止重复弹出
+                ,moveType: 1 //拖拽模式，0或者1
+                ,content: jQuery('.gaidiao')
+            });
+        }
+    };
+    jQuery('.change_pop1').on('click', function(){
+        var othis = jQuery(this), method = othis.data('method');
+        active3[method] ? active3[method].call(this, othis) : '';
+    });
+</script>
+<script>
+    $('.zymj_gzh_copy1').click(function () {
+
+        var clipboard11 = new Clipboard('#zymj_gzh_copy', {
+            text: function() {
+                var order_num = $('#dingdan').html();
+                return order_num;
+            }
+        });
+    })
+    $(".zymj_gzh_copy1").click(function(){
+        layui.layer.msg("复制成功",{icon:6});
+    });
+</script>
+<script>
+    //文字上划
+    (function(){
+        $("#gundong").kxbdMarquee({direction:"up",isEqual:false,scrollDelay:60});
+    })();
+    if ($(".Js_date").length>0) {
+        for (var a = 0, e = jQuery(".Js_date").length; a < e; a++) {
+            (new lCalendar).init("#" + jQuery(".Js_date").eq(a).attr("id"))
+        }
+    }
+    layui.use(['layer','form'], function(){});
+    var isinweixin = "0";
+    var discountlist = [1,0.9,0.8];
+
+
+
+    var cesuan = $('#jieyuan').attr('data-jieyuan');
+    var yuan = $('#yuanjia').attr('data-yuan')
+    var yuanjian = parseFloat(yuan) - parseFloat(cesuan)
+
+    var shu = String(cesuan).indexOf(".") + 1;
+    var count = String(cesuan).length - shu;
+    if (shu > 0){
+        $("#allmoney").text(parseFloat(cesuan).toFixed(2))
+    }else if(shu == 0){
+        $("#allmoney").text(parseInt(cesuan));
+    }
+
+    $("#youhui1").text('已优惠¥'+yuanjian)
+    $('#youhui2').text('-¥'+yuanjian)
+
+    //明细
+    $(".mingxi").click(function () {
+        if($('.selected').length == 0){
+            if ($('.ming2').hasClass('mingxian')) {
+                $(".pay_cover1,.ming2").fadeOut(300);
+                $('.ming2').removeClass('mingxian')
+                $('.mingzhuan').removeClass('daozhuan')
+
+            }else{
+                $(".pay_cover1,.ming2").fadeIn(300);
+                $('.ming2').addClass('mingxian')
+                $('.mingzhuan').addClass('daozhuan')
+            }
+        } else{
+            if ($('.ming').hasClass('mingxian')) {
+                $("https://ffcs.smxs.com/order/result/.pay_cover1,.ming").fadeOut(300);
+                $('.ming').removeClass('mingxian')
+                $('.mingzhuan').removeClass('daozhuan')
+
+            }else{
+
+                $("https://ffcs.smxs.com/order/result/.pay_cover1,.ming").fadeIn(300);
+                $('.ming').addClass('mingxian')
+                $('.mingzhuan').addClass('daozhuan')
+            }
+        }
+
+    });
+
+
+
+
+
+
+
+    function pushHistory() {
+        // return
+
+        // var u = navigator.userAgent;
+        // var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        //
+        // if(isiOS){
+        //     // alert("ios")
+        //     return
+        // }
+
+        var state = {
+            'title': '起名',
+            'url': '#1'
+        };
+        console.log("pushState")
+        window.history.pushState(state, "title", "#");
+    }
+
+    var lastClickedProductItem = null
+    /* $(".xiangqing").click(function () {
+         lastClickedProductItem = $(this)
+         if ($(this).prev('.select-btn').hasClass('selected')) {
+             $(".cece").hide()
+         }else{
+             $(".cece").show()
+         }
+         pushHistory();
+         var product_name = $(this).attr("data-name");
+         $('.product-view-title').text(product_name)
+         var product = $(this).attr("data-product");
+         var now_product = $("#product-view").attr("data-product");
+         if (product != now_product) {
+             $("#product-intro").remove();
+             $('<iframe id = "product-intro" class="product-intro" sandbox="allow-scripts" frameborder="0"></iframe>').prependTo('#product-view');
+             $("#product-intro").attr("src","/" + product + "?introl=1");
+         }
+         $("#product-view").attr("data-product", product);
+         $("#product-view").show()
+         $("#product-view").animate({
+             left: '0px',
+         }, 500, function() {
+         });
+         $(".product-view-close-warp").animate({
+             left:($(window).width() - $(".product-view-close-warp").width())/2,
+         }, 500, function() {
+         });
+         $(".cece").animate({
+             left: ($(window).width() - $(".product-view-close-warp").width())/2,
+         }, 500, function() {
+         });
+
+
+         /!* document.body.style.position='fixed';*!/
+
+     });*/
+
+    $(".xiangqing").click(function () {
+        $(this).prev().click()
+    });
+
+
+
+
+    $(".product-view-close").click(function(){
+        history.back();
+    });
+
+    $('.cece').click(function () {
+        $(".product-view-close").trigger("click");
+        //当前元素已被选中不处理
+        if (lastClickedProductItem.prev().hasClass('selected')) {
+            return false;
+        }
+        lastClickedProductItem.prev().click();
+    })
+
+    $(".order-delete").click(function(){
+        var pro = $(this).attr("data-product");
+        $(".product-item[data-product='"+pro+"']").trigger("click");
+    });
+
+    $(".pay_cover1,.pay_close").click(function () {
+        $(".pay_cover,.pay_block").fadeOut(200);
+        $("https://ffcs.smxs.com/order/result/.pay_cover1,.ming").fadeOut(200);
+        $(".pay_cover1,.ming2").fadeOut(200);
+        $('.ming').removeClass('mingxian')
+        $('.ming2').removeClass('mingxian')
+        $('.mingzhuan').removeClass('daozhuan')
+    });
+
+
+
+
+    $(".pay-btn").click(function () {
+
+        window.location.href='/wap/tutorPaySuccess?consultaId=[[${consultation.id}]]';
+
+
+        // if (isinweixin == "1"){
+        //     postOrder("weixin");
+        //     return true;
+        // }
+        // $(".pay_title4").text($("#allmoney").text());
+        // $(".pay_cover1,.pay_block").fadeIn(300);
+    });
+    $(".pay_way button").click(function(){
+        var channel = $(this).attr("data-id");
+        var slist = $(".product-list .select-btn.selected");
+        postOrder(channel);
+    });
+    $(".sex_boy").click(function () {
+        $(".sex_boy .sex-img").attr("src", "../static/Public/Ffcs1/images/qiming/sex-boy.png"/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/images/qiming/sex-boy.png*/);
+        $(".sex_girl .sex-img").attr("src", "../static/Public/Ffcs1/images/qiming/sex-girl-un.png"/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/images/qiming/sex-girl-un.png*/);
+        $("#reset_sex_value").val("1");
+    });
+    $(".sex_girl").click(function () {
+        $(".sex_boy .sex-img").attr("src", "../static/Public/Ffcs1/images/qiming/sex-boy-un.png"/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/images/qiming/sex-boy-un.png*/);
+        $(".sex_girl .sex-img").attr("src", "../static/Public/Ffcs1/images/qiming/sex-girl.png"/*tpa=https://imgffcs.smxs.com/Public/Ffcs1/images/qiming/sex-girl.png*/);
+        $("#reset_sex_value").val("2");
+    });
+    /**
+     *
+     * 获取当前时间
+     */
+    function getNow(s) {
+        return s < 10 ? '0' + s: s;
+    }
+
+    $(".reset-btn").click(function(){
+        var uid = $(this).attr("data-uid");
+        var username = $("#username-" + uid).text();
+        $("#change-uid").val(uid);
+        $("#reset_username").val(username);
+        var user = $("#user-" + uid);
+        var sex = user.attr("data-sex");
+        var birthday = user.attr("data-birthday");
+        if (sex == 1){
+            $(".sex_boy").trigger("click");
+        }else{
+            $(".sex_girl").trigger("click");
+        }
+        if (!birthday || birthday == "0000-00-00 00:00:00"){
+            var myDate = new Date();
+            //获取当前年
+            var year=myDate.getFullYear();
+            //获取当前月
+            var month=myDate.getMonth()+1;
+            //获取当前日
+            var date=myDate.getDate();
+            var h=myDate.getHours();
+            birthday = year+'-'+getNow(month)+"-"+getNow(date)+" "+getNow(h)+':00:00';
+        }
+        $("#r_birthday").attr("data-date", birthday);
+        layui.layer.open({
+            type: 1
+            ,title: '' // 不显示标题栏
+            ,closeBtn: false
+            ,shadeClose: true
+            ,area: '3.8rem;border-radius: 0.20rem;overflow: hidden;'
+            ,shade: 0.8
+            ,id: 'RESET_USERNAME_POPUP' //设定一个id，防止重复弹出
+            ,moveType: 1 //拖拽模式，0或者1
+            ,content: jQuery('#reset_name')
+        });
+    });
+    $(".change-birthday").click(function(){
+        var username = $("#reset_username").val();
+        if (username == ""){
+            layui.layer.msg("请输入姓名！",{icon:5});
+            return false;
+        }
+        layui.layer.closeAll("page");
+        layui.layer.open({
+            type: 1
+            ,title: '' // 不显示标题栏
+            ,closeBtn: false
+            ,shadeClose: true
+            ,area: '3.8rem;border-radius: 0.20rem;overflow: hidden;'
+            ,shade: 0.8
+            ,id: 'RESET_SEX_POPUP' //设定一个id，防止重复弹出
+            ,moveType: 1 //拖拽模式，0或者1
+            ,content: jQuery('#reset_sex')
+        });
+    });
+    $(".select_date").click(function () {
+        layui.layer.closeAll("page");
+        $("#r_birthday").trigger("click");
+    });
+
+    function postOrder(channel) {
+        var slist = $(".product-list .select-btn.selected");
+        var orderid = $("#orderid").val();
+        var plist = [];
+        slist.each(function(){
+            var product = $(this).attr("data-product");
+            plist.push(product);
+        });
+        var url = "/order/paygroup/";
+        var postData = {orderid : orderid, product : plist, channel: channel};
+
+        $.post(url, postData, function(result){
+            if (result.status != 1){
+                var msg = result.msg;
+                msg = msg ? msg : "网络错误请重试";
+                layui.layer.msg(msg, {icon:6, time:2000});
+            }else{
+                checkPay();
+                var pay_url = result.data.pay_url;
+                location.href = pay_url;
+            }
+        }, "json");
+    }
+
+
+
+    function reloadAmount(){
+        var plist = $(".product-list .product-item");
+        var slist = $(".product-list .product-item .selected");
+        var s_num = slist.length;
+        var dis_pre = 1;
+        if (s_num >= discountlist.length){
+            var num_key = (discountlist.length - 1);
+            dis_pre = discountlist[num_key];
+        }else{
+            dis_pre = discountlist[s_num];
+        }
+        var allmoney = 0;
+        var allnum = 1;
+        plist.each(function(){
+            var sbtn = $(this).find(".select-btn");
+            var isselect = sbtn.hasClass("selected");
+            var product = sbtn.attr("data-product");
+            if (isselect){
+                $(this).find(".show-price").addClass("hidden");
+                $(this).find(".bao").removeClass("hidden");
+                $(this).find(".price").removeClass("hidden");
+                //获取到选择的原价
+                var price = $(this).attr("data-price");
+                //获取到选择的优惠价
+                var dis = Math.floor(price * (1-dis_pre));
+                //获取到选择的现价
+                var real_price = price - dis;
+
+                $('.select').text(price);
+                $(this).find(".price-amount").text(price);
+                $(this).find(".discount-amount").text(dis);
+                $(this).find(".real-price").text(real_price);
+
+                allmoney = allmoney + real_price;
+                allnum++;
+                var make_order = $("#make-order-" + product);
+                make_order.find(".discount-amount").text("¥" + price);
+                make_order.find(".real-price").text("¥" + dis);
+                make_order.removeClass("hidden");
+            }else{
+                $(this).find(".bao").addClass("hidden");
+                $(this).find(".price").addClass("hidden");
+                $(this).find(".show-price").removeClass("hidden");
+                $("#make-order-"+product).addClass("hidden");
+            }
+        });
+        var orderamount = $(".orderinfo").attr("order-amount");
+        var dd = $(".dudu").html();
+        if (allnum > 1){
+            // 总价格
+            var total = 0
+            // 被选中的元素（多个
+            var $selected =$(".selected")
+
+            // 循环
+            for(var i=0,len=$selected.length;i<len;++i){
+                // 取出第i个，取出它 的data-price属性，就是它的价格
+                var price = $selected.eq(i).attr("data-price")
+                // 加到总的上面去
+                total = Number(total)+Number(price)
+                total = total.toFixed(2)
+            }
+            total =parseFloat(total)+parseFloat(orderamount)
+
+            $('#yprice').text("原价¥" + total);
+            $(".pay-btn-num").text("(" + allnum + ")");
+            $("#order-price").addClass("hidden");
+            $("#order-discount").removeClass("hidden");
+            $("#yemian").removeClass("hidden");
+
+            var dis = Math.floor(orderamount * (1-dis_pre));
+
+            var real_price = orderamount - dis;
+            var yuan = Number(orderamount) + Number(dd);
+
+            $("#order-discount").find(".yuan").text("¥"+yuan);
+            $("#order-discount").find(".discount-amount").text("-¥" + dis);
+            $("#order-discount").find(".real-price").text("¥" + real_price);
+            allmoney = parseFloat(allmoney) + parseFloat(real_price);
+            var youhh = parseInt(total) - parseInt(allmoney);
+            var youhh = parseInt(youhh)
+            $('#youhui1').text("已优惠¥" + youhh);
+
+
+        }
+        else{
+            $(".pay-btn-num").text("");
+            allmoney = orderamount;
+            $("#order-price").removeClass("hidden");
+            $("#order-discount").addClass("hidden");
+            $("#yemian").addClass("hidden");
+
+        }
+        $("#allmoney").text(parseInt(allmoney));
+
+
+    }
+
+    function checkPay() {
+        $("#check_order_num").val(500);
+        setTimeout(function(){
+            layui.layer.open({
+                type: 1
+                ,title: '' // 不显示标题栏
+                ,closeBtn: false
+                ,shadeClose: false
+                ,area: '300px;'
+                ,shade: 0.4
+                ,id: 'ISPAY_POPUP' //设定一个id，防止重复弹出
+                ,moveType: 1 //拖拽模式，0或者1
+                ,content: $('#ispay_pop')
+            });
+        }, 2000);
+    }
+
+    function changeDate(date, hour) {
+        $(".reselect-date").attr('disabled', true);
+        var orderid = $("#restBirthday #change-orderid").val();
+        var sex = $("#reset_sex_value").val();
+        if (!sex) {
+            layui.layer.msg("请选择正确的宝宝性别", {icon: 5});
+            return false;
+        }
+        var uid = $("#change-uid").val();
+        var username = $("#reset_username").val();
+        var postData = {orderid: orderid, username: username ,sex: sex, day: date, hour: hour, uid:uid};
+        $.post("/user/change", postData, function (result) {
+            if (result.status == 1){
+                var data = result.data;
+                var id = data.uid;
+                var username = data.username;
+                var sex = data.sex;
+                var birthday = data.birthday;
+                var gongli = data.gongli.year + "年 " + data.gongli.month + "月 " + data.gongli.day +"日 " + data.gongli.hour + "时（公历）";
+                var nongli = data.nongli1[0]+"年 " + data.nongli2[1]+ "月 "+ data.nongli2[2]+"日 " + data.bazi.sz + "时（农历）";
+                $("#username-"+id).text(username);
+                var sex_str = "女";
+                if (sex == 1){
+                    sex_str = "男";
+                }
+                $("#sex-" + id).text(sex_str);
+                $("#nongli-" + id).text(nongli);
+                $("#gongli-" + id).text(gongli);
+                $("#user-" + id).attr("data-sex", sex);
+                $("#user-" + id).attr("data-birthday", birthday);
+                layui.layer.msg("修改成功", {icon:6});
+            }else{
+                var msg = result.msg ? result.msg : "网络错误请重试";
+                layui.layer.msg(msg, {icon:6});
+            }
+        }, "json");
+    }
+
+    //手机监听事件
+
+    $(function(){
+        window.addEventListener("popstate", function(e) {
+            $("#product-view").animate({
+                left: '100vw',
+            }, 300, function() {
+            });
+            $(".product-view-close-warp").animate({
+                left: '100vw',
+            }, 300, function() {
+            });
+            $(".cece").animate({
+                left: '100vw',
+            }, 300, function() {
+            });
+            var json = window.history.state;
+            if (json && json.url == "#"){
+
+            }
+        }, false);
+
+    });
+
+
+    function select(){
+
+        var discount = 1
+        var selectedCount = $(".selected").length +1
+        if(selectedCount<2){
+            discount =1
+        }else if(selectedCount<3){
+            discount =0.9
+        }else{
+            discount = 0.8
+        }
+        var jieyuan = $('#jieyuan').attr('data-jieyuan');
+        var dis = Math.floor(jieyuan * (1-discount));
+        var xian = parseInt(jieyuan) - parseInt(dis)
+        if(0===xian){
+            xian = jieyuan
+        }
+        $('#jieyuan').attr('data-xian',xian);
+        var total = xian
+
+        var Oldyuanjia = $('#order-price').attr('data-jiage')//首单原价
+
+        var Oldyou  = $('#order-price').attr('data-youhui') //首单结缘价
+        var Oldce = parseFloat(Oldyuanjia) - parseFloat(Oldyou)//首单优惠多少钱
+        var dang = Oldyuanjia - parseFloat(xian)//选择其他产品首单优惠价钱
+        var qiancai = $('.qiancai').text();
+        var qiancai = qiancai.substr(1)//首单结缘价
+        var zhehou =  parseFloat(qiancai) - parseFloat(xian)//打折后优惠多少钱
+        var cejian = parseFloat(Oldyuanjia) - parseFloat(qiancai)
+
+
+        var shu = $(".selected").length;
+        if(shu == 0){
+            $("#youhui1").text('已为您节省¥'+Oldce)
+        }
+
+        $(".selected").next().each(function(index){
+            //原价
+            var  $e = $(this)
+            //原价
+            var  oldPrice =  $e.find(".show_price").attr("data-price")  // 68
+
+            var price =  Math.floor(oldPrice * (1-discount));
+            price = parseFloat(oldPrice) - parseFloat(price)
+            $e.find(".show-price").attr('data-youhui',price);
+            var tui_price = $('.tuijian_xuan .selected').prev().children(2).find('.tuijian_show-price').attr('data-youhui')
+            if (tui_price == null){
+                tui_price = 0
+            }
+            total = parseFloat(total)+parseInt(price)+parseInt(tui_price)
+            //优惠的价格
+            var yuan =  $e.find(".show-price").attr("data-show-you") //98
+            var youhui = parseFloat(yuan) - parseFloat(price)  //38选择优惠
+            var ceyou = $e.find(".show-price").attr("data-price")
+
+            var cejian_you = parseFloat(yuan) - parseFloat(oldPrice)
+            dang = parseFloat(dang) + parseFloat(youhui)
+            $("#youhui1").text('已为您节省¥'+dang)
+            if(shu == 0){
+                $("#youhui1").text('已为您节省¥'+dang)
+            }
+            //测试原价
+            Oldyuanjia = parseFloat(Oldyuanjia) + parseFloat(yuan)
+            $(".ce").text('¥'+Oldyuanjia)
+            cejian = parseFloat(cejian) + parseFloat(cejian_you)
+            $(".yuan").text('-¥'+cejian)
+            //折后优惠
+            var zhehou_price =  Math.floor(oldPrice * (1-discount));
+            zhehou = parseFloat(zhehou) + parseFloat(zhehou_price)
+            $(".zhehou").text('-¥'+zhehou)
+        })
+        var y = String(total).indexOf(".") + 1;
+        var count = String(total).length - y;
+        if (y > 0){
+            $("#allmoney").text(parseFloat(total).toFixed(2))
+        }else if(y == 0){
+            $("#allmoney").text(parseInt(total));
+        }
+    }
+
+
+    $(".select-btn").click(function(){
+
+        var ming2cesuan = $('#jieyuan').attr('data-jieyuan');
+        var ming2yuan = $('#yuanjia').attr('data-yuan')
+        var ming2yuanjian = parseFloat(ming2yuan) - parseFloat(ming2cesuan)
+        $('.price-amount').text('¥'+ming2yuan);
+        $('#youhui2').text('-¥'+ming2yuanjian);
+        var sbtn = $(this)
+        var isselect = sbtn.hasClass("selected");
+        var xian= 0
+        if (isselect){
+
+            sbtn.siblings('.product-item').children('.detail').find(".bao").addClass("hidden");
+            sbtn.removeClass("selected")
+            sbtn.siblings('.product-item').children('.detail').find(".show-price").removeClass('hidden')
+            sbtn.siblings('.product-item').children('.detail').find(".show_price").addClass('hidden')
+            sbtn.siblings('.product-item').children('.detail').find(".show-price").children('.show_you').removeClass('show_you_sel')
+            sbtn.siblings('.product-item').children('.detail').find(".show-price").children('.show_you').removeClass('show_you_sel')
+            sbtn.siblings('.tuijian-item').children('.detail').find(".tuijian_show-price").removeClass('hidden')
+            sbtn.siblings('.tuijian-item').children('.detail').find(".show_price").addClass('hidden')
+            sbtn.siblings('.tuijian-item').children('.detail').find(".tuijian_show-price").find(".show_zuizhong").text();
+            sbtn.siblings('.tuijian-item').children('.detail').find(".tuijian_show-price").find('#zhan_youhui').addClass('hidden');
+            sbtn.siblings('.tuijian-item').children('.detail').find(".tuijian_show-price").find('.zhanshi').removeClass('show_jia1');
+            var num = $('.selected').length;
+            if (num == 0 ){
+                $(".pay-btn-num").text("");
+                $('#show_you_hui').addClass('hidden');
+                $('.show_jia').removeClass('show_jia1')
+            }else{
+                num = num + 1
+                $(".pay-btn-num").text("(" + num + ")");
+            }
+            var s_num = $('.selected').length;
+            var dis_pre = 1;
+            if (s_num >= discountlist.length){
+                var num_key = (discountlist.length - 1);
+                dis_pre = discountlist[num_key];
+            }else{
+                dis_pre = discountlist[s_num];
+            }
+            var jieyuan = $('#jieyuan').attr('data-jieyuan');
+            var dis = Math.floor(jieyuan * (1-dis_pre));
+            xian = parseInt(jieyuan) - parseInt(dis)
+            if (s_num == 0){
+                $('.cesuan').addClass('hidden')
+                $('.qiancai').addClass('qian')
+            }else{
+                $('.jiaqian') .text(xian)
+                $('#youhua').text(xian)
+            }
+            var zuizhong = sbtn.siblings('.tuijian-item').attr('data-price');
+            sbtn.siblings('.tuijian-item').children('.detail').find('.tuijian_show-price').find('.show_zuizhong').text(zuizhong)
+
+        }else{
+            sbtn.siblings('.tuijian-item').children('.detail').find(".tuijian_show-price").find('#zhan_youhui').removeClass('hidden');
+            $('#show_you_hui').removeClass('hidden');
+            sbtn.siblings('.tuijian-item').children('.detail').find(".tuijian_show-price").find('.zhanshi').addClass('show_jia1');
+
+            $('.show_jia').addClass('show_jia1')
+            if ($('.selected').length >= 0){
+                $('.mingxi').removeClass('hidden')
+            }
+            sbtn.siblings('.product-item').children('.detail').find(".show-price").children('.show_you').addClass('show_you_sel')
+            sbtn.siblings('.product-item').children('.detail').find(".bao").removeClass("hidden");
+            sbtn.addClass("selected");
+            sbtn.siblings('.product-item').children('.detail').find(".show_price").removeClass('hidden')
+            sbtn.siblings('.product-item').children('.detail').find(".show-price").addClass('hidden')
+
+            sbtn.siblings('.product-item').children('.detail').find(".show-price").addClass('hidden')
+            if ( sbtn.siblings('.product-item').children('.detail').find(".bao").find(".jie").text()==''){
+                sbtn.siblings('.product-item').children('.detail').find(".bao").addClass("hidden");
+            }else {
+                sbtn.siblings('.product-item').children('.detail').find(".bao").removeClass("hidden");
+            }
+            var num = $('.selected').length;
+            num = num + 1
+            $(".pay-btn-num").text("(" + num + ")");
+            var dis_pre = 1;
+            if (num >= discountlist.length){
+                var num_key = (discountlist.length - 1);
+                dis_pre = discountlist[num_key];
+            }else{
+                dis_pre = discountlist[num-1];
+            }
+
+            var jieyuan = $('#jieyuan').attr('data-jieyuan');
+            var dis = Math.floor(jieyuan * (1-dis_pre));
+            xian = parseInt(jieyuan) - parseInt(dis)
+            $('.cesuan').removeClass('hidden')
+            $('.qiancai').removeClass('qian')
+        }
+        if(0===xian){
+            $('.jiaqian').text($('.cesuan').attr('data-price'))
+            $('#youhua').text($('.cesuan').attr('data-price'))
+            $('.gaibian').text($('.cesuan').attr('data-price'))
+        }else{
+            $('.jiaqian').text(xian)
+            $('#youhua').text(xian)
+            $('.gaibian').text(xian)
+
+        }
+
+
+
+
+        // 计算折扣
+        var discount = 1
+        var selectedCount = $(".selected").length +1
+
+        if(selectedCount<2){
+            discount =1
+        }else if(selectedCount<3){
+            discount =0.9
+        }else{
+            discount = 0.8
+        }
+
+        var cesuan = $('.cesuan').text();
+        var cesuan = cesuan.substr(1)
+
+        var total = Number(cesuan);
+
+        $(".product-list .product-item .show_you_hou").addClass("hidden")
+
+        var Oldyuanjia = $('#order-price').attr('data-jiage')
+        var Oldyou  = $('#order-price').attr('data-youhui')
+        var Oldce = parseFloat(Oldyuanjia) - parseFloat(Oldyou)
+        var dang = parseFloat(Oldyuanjia) - parseFloat(cesuan)
+
+        var qiancai = $('.qiancai').text();
+        var qiancai = qiancai.substr(1)
+        var zhehou =  parseFloat(qiancai) - parseFloat(cesuan)
+        var cejian = parseFloat(Oldyuanjia) - parseFloat(qiancai)
+
+        var shu = $(".selected").length;
+        if(shu == 0){
+            $("#youhui1").text('已优惠¥'+Oldce)
+        }
+
+
+
+
+        $(".selected").next().each(function(index){
+            var  $e = $(this)
+            //原价
+            var  oldPrice =  $e.find(".show_price").attr("data-price")  // 68
+            var price =  Math.floor(oldPrice * (1-discount));
+            price = parseFloat(oldPrice) - parseFloat(price)
+            $e.find(".show_you_hou").removeClass("hidden");
+            $e.find(".show_zuizhong").text(parseInt(price));
+            $e.find(".youhua").text(parseInt(price));
+            total = total+price
+            //优惠的价格
+            var yuan =  $e.find(".show-price").attr("data-show-you") //98
+
+            var youhui = parseFloat(yuan) - parseFloat(price)  //38选择优惠
+
+            var ceyou = $e.find(".show-price").attr("data-price")
+
+            var cejian_you = parseFloat(yuan) - parseFloat(oldPrice)
+            dang = parseFloat(dang) + parseFloat(youhui)
+            $("#youhui1").text('已优惠¥'+dang)
+            if(shu == 0){
+                $("#youhui1").text('已优惠¥'+dang)
+            }
+            //测试原价
+            Oldyuanjia = parseFloat(Oldyuanjia) + parseFloat(yuan)
+            $(".ce").text('¥'+Oldyuanjia)
+            cejian = parseFloat(cejian) + parseFloat(cejian_you)
+            $(".yuan").text('-¥'+cejian)
+            //折后优惠
+            var zhehou_price =  Math.floor(oldPrice * (1-discount));
+            zhehou = parseFloat(zhehou) + parseFloat(zhehou_price)
+            $(".zhehou").text('-¥'+zhehou)
+
+        })
+
+
+
+        var y = String(total).indexOf(".") + 1;
+        var count = String(total).length - y;
+        if (y > 0){
+            $("#allmoney").text(parseFloat(total).toFixed(2))
+        }else if(y == 0){
+            $("#allmoney").text(parseInt(total));
+        }
+    })
+
+
+
+
+
+
+
+
+
+    /*    $(".select-btn").click(function(){
+            var sbtn = $(this)
+            var isselect = sbtn.hasClass("selected");
+            var xian= 0
+            if (isselect) {
+                sbtn.siblings('.product-item').children('.detail').find(".bao").addClass("hidden");
+                sbtn.removeClass("selected")
+
+                var num = $('.selected').length;
+                if (num == 0 ){
+                    $(".pay-btn-num").text("");
+                }else{
+                    num = num + 1
+                    $(".pay-btn-num").text("(" + num + ")");
+                }
+            }
+            else {
+                sbtn.siblings('.product-item').children('.detail').find(".bao").removeClass("hidden");
+                sbtn.addClass("selected")
+                if ( sbtn.siblings('.product-item').children('.detail').find(".bao").find(".jie").text()==''){
+                    sbtn.siblings('.product-item').children('.detail').find(".bao").addClass("hidden");
+                }else {
+                    sbtn.siblings('.product-item').children('.detail').find(".bao").removeClass("hidden");
+                }
+
+                var num = $('.selected').length;
+                num = num + 1
+                $(".pay-btn-num").text("(" + num + ")");
+                var dis_pre = 1;
+                if (num >= discountlist.length){
+                    var num_key = (discountlist.length - 1);
+                    dis_pre = discountlist[num_key];
+                }else{
+                    dis_pre = discountlist[num-1];
+                }
+            }
+            select();
+
+        });*/
+
+
+    $('.tuijian-item').click(function () {
+        $(this).prev().click()
+
+    })
+
+
+    $(".jia").eq($(".jia").length-1).remove()
+
+
+
+
+    //组合未支付订单过来自动选中
+    $(function () {
+        var slist = $(".product-list .select-btn");
+        var product_obj = JSON.parse('[]');
+        console.log(product_obj.length);
+        for (var i=0; i<product_obj.length; i++) {
+            var sel_product = product_obj[i];
+            var slist = $(".product-list .select-btn");
+            slist.each(function(){
+                var product = $(this).attr("data-product");
+                if (sel_product == product) {
+                    $(this).click();
+                }
+            });
+        }
+    });
+
+
+    //倒计时
+
+    var timeCounter = (function() {
+        var int;
+        var total = 3600;
+        return function(elemID) {
+            obj = document.getElementById(elemID);
+            var s = (total%60) < 10 ? ('0' + total%60) : total%60;
+            var h = total/3600 < 10 ? ('0' + parseInt(total/3600)) : parseInt(total/3600);
+            var m = (total-h*3600)/60 < 10 ? ('0' + parseInt((total-h*3600)/60)) : parseInt((total-h*3600)/60);
+            obj.innerHTML = h + ' : ' + m + ' : ' + s;
+            total--;
+            int = setTimeout("timeCounter('" + elemID + "')", 1000);
+            if(total < 0){
+                clearTimeout(int);
+                var youhui = $('.lijian').text();
+                youhui = youhui.replace('优惠','')
+                $('.lijian').text(youhui)
+            }
+
+        }
+    })()
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ow.tracer.mantuoluo.member.dsm.mapper.TutorMapper">
+
+	<!-- 字段与Model映射 -->
+
+
+	<sql id="Base_Column_List">
+		'id',
+		'user_id',
+		'name',
+		'phone',
+		'message',
+		'image',
+		'status',
+		'pass',
+		'del_flag',
+      'create_date',
+      'create_by',
+      'update_by',
+      'update_date',
+       'version_number',
+       'enabled',
+       'type_id',
+              'user_lat',
+              'user_lng',
+
+	</sql>
+	<select id="selectByGps"  resultType="com.ow.tracer.mantuoluo.member.dsm.dto.Tutor" >
+			SELECT
+	*
+FROM
+	v_tutor
+
+
+ORDER BY
+	ACOS(
+		SIN((#{lat}  * 3.1415) / 180) * SIN((user_lat * 3.1415) / 180) + COS((#{lat}  * 3.1415) / 180) * COS((user_lat * 3.1415) / 180) * COS(
+			(#{lng} * 3.1415) / 180 - (user_lng * 3.1415) / 180
+		)
+	) * 6380 ASC
+LIMIT 1 ;
+	</select>
+
+</mapper>

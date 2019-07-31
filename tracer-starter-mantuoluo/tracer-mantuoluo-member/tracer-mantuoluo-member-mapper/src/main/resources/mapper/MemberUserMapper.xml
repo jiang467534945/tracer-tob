@@ -12,7 +12,11 @@
 		`avatar_url`,
 		`open_id`,
 		`gender`,
-		`user_type`
+		`user_type`,
+		'totalFee',
+		'prepayId',
+		'lat',
+		'lng',
 	'del_flag',
       'create_date',
       'create_by',

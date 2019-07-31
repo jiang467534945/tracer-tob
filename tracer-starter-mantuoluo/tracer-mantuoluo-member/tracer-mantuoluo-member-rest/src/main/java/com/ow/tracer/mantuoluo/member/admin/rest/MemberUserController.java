@@ -51,9 +51,9 @@ public class MemberUserController extends BaseController {
     	 * @return List实体集合
     	 */
     @GetMapping(value="/allList")
-    public Result allList(){
+    public List allList(){
         List<MemberUser> memberUserList =  memberUserService.list(new QueryWrapper<>());
-        return Results.successWithData(memberUserList, BaseEnums.SUCCESS.code(), BaseEnums.SUCCESS.desc());
+        return memberUserList;
     }
 
     /**
@@ -67,6 +67,19 @@ public class MemberUserController extends BaseController {
         MemberUser memberUser = new MemberUser ();
         memberUser=memberUserService.getById(id);
         return Results.successWithData(memberUser, BaseEnums.SUCCESS.desc());
+    }
+
+    /**
+     * 通过ID查询
+     * @param id ID
+     * @return Dept
+     */
+
+    @GetMapping("/getId")
+    public MemberUser getId (String id) {
+        MemberUser memberUser = new MemberUser ();
+        memberUser=memberUserService.getById(id);
+        return memberUser;
     }
 
     /**

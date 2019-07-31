@@ -1,0 +1,338 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection"><meta name="Author" contect="">
+    <title>性格详细</title>
+    <link href="../static/css/demo.css" rel="stylesheet" type="text/css">
+
+    <link href="../static/css/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../static/css/common1.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../static/LCalendar/css/mobileSelect.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_234130_nem7eskcrkpdgqfr.css">
+
+    <script src="../static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/js/tab.js"></script>
+    <script src="../static/js/dateUtil.js"></script>
+
+</head>
+<body>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    ul{
+        list-style: none;
+    }
+    #schedule-box{
+        width: 320px;
+        margin: 0 auto;
+        padding: 35px 20px;
+        font-size: 13px;
+    }
+    .schedule-hd{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+    .today{
+        flex: 1;
+        text-align: center;
+    }
+    .ul-box{
+        overflow: hidden;
+    }
+    .ul-box > li{
+        float: left;
+        width: 14.28%;
+        text-align: center;
+        padding: 5px 0;
+    }
+    .other-month{
+        color: #999999;
+    }
+    .current-month{
+        color: #333333;
+    }
+    .today-style{
+        border-radius: 50%;
+        background: #58d321;
+    }
+    .arrow{
+        cursor: pointer;
+    }
+    .dayStyle{
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 35px;
+        cursor: pointer;
+    }
+    .current-month > .dayStyle:hover{
+        background: #00BDFF;
+        color: #ffffff;
+    }
+    .today-flag{
+        background: #00C2B1;
+        color: #fff;
+    }
+    .boxshaw{
+        box-shadow: 2px 2px 15px 2px #e3e3e3;
+    }
+    .selected-style {
+        background: #00BDFF;
+        color: #ffffff;
+    }
+    #h3Ele{
+        text-align: center;
+        padding: 10px;
+    }
+</style>
+<script type="text/javascript">
+    var w,h,className;
+    function getSrceenWH(){
+        w = $(window).width();
+        h = $(window).height();
+        $('#dialogBg').width(w).height(h);
+    }
+
+    window.onresize = function(){
+        getSrceenWH();
+    }
+    $(window).resize();
+    $(function(){
+        getSrceenWH();
+        //显示弹框
+        $('.aui-tabBar-item-text').click(function(){
+            $('#dialogBg').fadeIn(300);
+            $('#dialog').removeAttr('class').addClass('animatedflipInX').fadeIn();
+        });
+        // //关闭弹窗
+        // $('.claseDialogBtn').click(function(){
+        //     $('#dialogBg').fadeOut(300,function(){
+        //         $('#dialog').addClass('bounceOutUp').fadeOut();
+        //     });
+        // });
+    });
+</script>
+<section class="aui-flexView">
+
+    <header class="aui-navBar aui-navBar-fixed">
+        <a href="javascript:;" class="aui-navBar-item">
+            <i class="icon icon-return"></i>
+        </a>
+        <div class="aui-center">
+            <span class="aui-center-title">课程详情</span>
+        </div>
+        <a href="javascript:;" class="aui-navBar-item">
+            <i class="icon icon-sys"></i>
+        </a>
+    </header>
+    <section class="aui-scrollView" style="font-size:.28rem">
+        <div class="divHeight"></div>
+
+        <div class="aui-tab" data-ydui-tab="">
+            <ul class="tab-nav">
+                <li class="tab-nav-item tab-active">
+                    <a href="javascript:;">
+                        <span>优点</span>
+                    </a>
+                </li>
+                <li class="tab-nav-item">
+                    <a href="javascript:;">
+                        <span>缺点</span>
+                    </a>
+                </li>
+                <li class="tab-nav-item">
+                    <a href="javascript:;">
+                        <span>建议</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-panel">
+                <div class="tab-panel-item tab-active">
+                    <div class="aui-course-head" id="youdian" th:each="item:${jisuanList.list}">
+                        <p th:text="${item.advantage}"></p>
+                    </div>
+                </div>
+                <div class="tab-panel-item">
+                    <div class="aui-course-head" id="quedian" th:each="item:${jisuanList.list}">
+                        <p th:text="${item.shortcoming}"></p>
+
+                    </div>
+                </div>
+                <div class="tab-panel-item">
+                    <div class="aui-course-head" id="jianyi" th:each="item:${jisuanList.list}">
+                        <p th:text="${item.proposal}"></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="aui-footer" id="Aui-two" style="display: none">
+            <a href="javascript:;" class="aui-tabBar-item aui-tabBar-item-zero" id="pay">
+                <span class="aui-tabBar-item-text">进一步了解 </span>
+            </a>
+        </div>
+    </section>
+    <footer class="aui-footer">
+        <a href="javascript:;" class="aui-tabBar-item aui-tabBar-item-zero">
+            <span class="aui-tabBar-item-text">还有疑虑？联系专属导师</span>
+        </a>
+    </footer>
+    </div>
+
+
+</section>
+<div id="dialogBg"></div>
+<div id="dialog" class="animated">
+    <div class="dialogTop">
+        <a href="javascript:;" class="claseDialogBtn">关闭</a>
+    </div>
+    <ul class="editInfos">
+
+        <li><label><font color="#ff0000"></font>支付金额：<span>30</span></label></li>
+        <li><label><font color="#ff0000">支付成功后，填写资料系统将为您推荐距离最近的导师信息</font></label></li>
+        <li><input type="submit" value="确认支付" class="submitBtn" /></li>
+    </ul>
+</div>
+</body>
+<script  charset="utf-8"  src="https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js"></script>
+<script src="../static/js/style.js"></script>
+<script src="../static/js/tools.js"></script><!--图片压缩-->
+<script src="../static/LCalendar/js/mobileSelect.min.js"></script>
+<script type="text/javascript" src="../static/js/slider.js"></script>
+<script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=6LLBZ-QMLCX-HNA4L-T3ADN-4O3V5-BFFLB"></script>
+
+
+
+    <script>
+        var date;
+
+    var geolocation = new qq.maps.Geolocation("VVBBZ-DWTCV-EINP4-URN7W-XJGU6-3ZFEX", "myapp");
+    var options = {timeout: 8000};
+    var userId="[[${session.userId}]]";
+    var consultation;
+    var lat="00.00";
+    var lng="00.00";
+
+    $(document).ready(function() {
+        //任何需要执行的js特效
+        geolocation.getLocation(showPosition, showErr, options)
+    });
+
+    function showPosition(position) {
+        console.log(position.lat);
+        alert(position.lat);
+        lat=position.lat;
+        lng=position.lng;
+
+  };
+
+    function showErr() {
+            console.log("报错了")
+        console.log("报错了");
+
+    };
+    function showWatchPosition() {
+        document.getElementById("demo").innerHTML += "开始监听位置！<br /><br />";
+        geolocation.watchPosition(showPosition);
+        document.getElementById("pos-area").scrollTop = document.getElementById("pos-area").scrollHeight;
+    };
+
+    function showClearWatch() {
+        geolocation.clearWatch();
+        document.getElementById("demo").innerHTML += "停止监听位置！<br /><br />";
+        document.getElementById("pos-area").scrollTop = document.getElementById("pos-area").scrollHeight;
+    };
+
+
+        $(".submitBtn").click(function(){
+            $.ajax({
+                url:"/wap/consultation/add",
+                type:"post",
+                dataType: 'json',
+                contentType: 'application/json',
+                data:
+                    JSON.stringify({
+                      "phone":$('.ipt').val(),
+                        "birthDay":consultation.birthDay,
+                        "type":consultation.type,
+                        "birthNum":consultation.birthNum,
+                        "lat":consultation.lat,
+                        "lng":consultation.lng,
+
+                    }),
+                success:function (e) {
+                    window.location.href = "/wap/detail?consultaId="+e.data;
+                }
+            })
+        })
+
+		$("#jisuanClick").click(function(){
+
+            $.ajax({
+                url:"/wap/consulta/add",
+                type:"post",
+                dataType: 'json',
+                contentType: 'application/json',
+                data:JSON.stringify({
+                    "memberId":userId,
+                    "lat":lat,
+                    "lng":lng,
+                    "birthDay":date,
+                    "type":1
+                }),
+                success:function (e) {
+                    var dataVal = e.data.nodes;
+
+                    $("#Aui-two").show();
+                    consultation=e.data.consultation;
+
+
+                }
+            })
+
+        });
+        // $("#pay").click(function(){
+        //
+        //     alert("支付成功");
+        //     window.location.href = "/wap/detail?consultaId="+consultaId;
+        // });
+</script>
+<script type="text/javascript">
+    var w,h,className;
+    function getSrceenWH(){
+        w = $(window).width();
+        h = $(window).height();
+        $('#dialogBg').width(w).height(h);
+    }
+
+    window.onresize = function(){
+        getSrceenWH();
+    }
+    $(window).resize();
+    $(function(){
+        getSrceenWH();
+        //显示弹框
+        $('#pay').click(function(){
+            $('#dialogBg').fadeIn(300);
+            $('#dialog').removeAttr('class').addClass('animatedflipInX').fadeIn();
+        });
+        // //关闭弹窗
+        // $('.claseDialogBtn').click(function(){
+        //     $('#dialogBg').fadeOut(300,function(){
+        //         $('#dialog').addClass('bounceOutUp').fadeOut();
+        //     });
+        // });
+    });
+</script>
+
+</html>

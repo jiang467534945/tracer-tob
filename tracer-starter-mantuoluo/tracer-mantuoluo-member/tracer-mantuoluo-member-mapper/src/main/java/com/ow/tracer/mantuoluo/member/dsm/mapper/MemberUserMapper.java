@@ -1,6 +1,7 @@
 package com.ow.tracer.mantuoluo.member.dsm.mapper;
 
 import com.ow.tracer.common.base.Mapper;
+import com.ow.tracer.mantuoluo.member.dsm.dto.Details;
 import com.ow.tracer.mantuoluo.member.dsm.dto.MemberUser;
 
 
@@ -13,5 +14,5 @@ import com.ow.tracer.mantuoluo.member.dsm.dto.MemberUser;
 public interface MemberUserMapper extends Mapper<MemberUser> {
 
 
-
 }
+

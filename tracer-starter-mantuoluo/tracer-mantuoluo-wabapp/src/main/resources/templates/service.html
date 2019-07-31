@@ -1,0 +1,159 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="Author" contect="">
+<title>服务预约</title>
+<link href="../static/css/style.css" rel="stylesheet"/>
+<link href="../static/css/response.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="../static/LCalendar/css/LCalendar.css" />
+<link rel="stylesheet" type="text/css" href="../static/LCalendar/css/mobileSelect.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/iconfont1.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/multiselect1.css"/>
+    <script src="../static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/js/multiselect1.js"></script>
+
+    <script src="../static/js/rem.js"></script>
+</head>
+<body>
+<div class="content invoice_cont">
+	<div class="header">
+    	<div class="head">
+            服务预约
+        </div>
+    </div>
+    <div class="forms">
+        <div class="formList clearfix">
+
+        <div id="test"></div>
+        </div>
+        <div class="formList clearfix">
+        	<div class="formTi float-l">姓名<span class="red">*</span></div>
+            <div class="form_input float-l">
+                <input type="hidden" id="testValue"  />
+
+                <input type="text"  id="name" placeholder="请输入您的真实姓名" />
+            </div>
+        </div>
+        <div class="formList clearfix">
+            <div class="formTi float-l">性别<span class="red">*</span></div>
+            <div class="form_input float-l">
+                <select class="form_sel" id="sex">
+                    <option value="0">男</option>
+                    <option value="1">女</option>
+                </select>
+            </div>
+        </div>
+        <div class="formList clearfix">
+        	<div class="formTi float-l">联系方式<span class="red">*</span></div>
+            <div class="form_input float-l">
+            	<input type="text" id="phone" placeholder="请输入您的联系方式" />
+            </div>
+        </div>
+        <div class="formList clearfix">
+            <div class="formTi float-l">婚姻状况<span class="red">*</span></div>
+            <div class="form_input float-l">
+                <select class="form_sel" id="marriage">
+                    <option value="0">已婚</option>
+                    <option value="1">未婚</option>
+                </select>
+            </div>
+        </div>
+        <div class="formList clearfix">
+            <div class="formTi float-l">子女数量<span class="red">*</span></div>
+            <div class="form_input float-l">
+                <select class="form_sel" id="childNum">
+                    <option value="0"> 0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+
+                </select>
+            </div>
+        </div>
+        <div class="formList clearfix">
+        	<div class="formTi float-l">阳历生日<span class="red">*</span></div>
+            <div class="form_input float-l">
+            	<input type="text"  disabled="disabled"id="jz_date"  th:value="${baseModel.consultation.birthDay}" readonly />
+            </div>
+        </div>
+
+        <div class="formList clearfix">
+        	<div class="formTi float-l">补充信息<span class="red">*</span></div>
+            <div class="form_input float-l">
+            	<input type="text" placeholder="请输入补充" />
+            </div>
+        </div>
+
+
+
+        <div class="fuwuxuzhi"><label for="xuzhi"><input type="checkbox" checked id="xuzhi" />已阅读</label> <span class="red">服务须知</span></div>
+        <div class="formsub" style="margin:.7rem auto .5rem auto;">提交</div>
+    </div>
+        <input type="hidden" th:value="${baseModel.consultation.id}" id="conId">
+</div>
+
+<!--提示-->
+<div class="tip-success-bg tip-tip-box">
+    <div class="tip-tip-box-nei">
+    	<strong id="tishiyu">错误提示</strong>
+    </div><!--tip-tip-box/-->
+</div><!--tip-success-bg/-->
+
+<div class="eject eject-xuzhi">
+    <div class="eject-cont">
+        <h3 class="eject-title"> <a href="javascript:;" class="closes">&times;</a></h3>
+        <div class="messages">
+            <div class="tipsss">
+        		汉家啊第三方拉升进来`是否就算啦大换个绿卡是李开复华师大离开个健康哈市克林顿规范哈
+
+            </div>
+        </div><!--messages/-->
+    </div><!--eject-cont/-->
+</div><!--eject-redbag/-->
+<div class="bg100"></div>
+<script src="../static/js/style.js"></script>
+<script src="../static/js/progress.js"></script><!--进度条插件-->
+<script src="../static/js/tools.js"></script><!--图片压缩-->
+<script src="../static/js/upload.js"></script><!--图片上传-->
+<script src="../static/LCalendar/js/mobileSelect.min.js"></script>
+<script type="text/javascript" src="../static/js/slider.js"></script>
+
+<script type="text/javascript">
+    $("#test").multiselectInit({
+        "selectData":[{"colId":0,"colValue":"情感"},{"colId":1,"colValue":"事业"},{"colId":2,"colValue":"生命"},{"colId":3,"colValue":"健康"},{"colId":4,"colValue":"气运"}],
+        "isMulti":true,//是否多选
+        "inputId":"testValue",//输入框的id
+        "checkStyle":"fg"//选择的样式
+    });
+    $(".formsub").click(function(){
+        $.ajax({
+            url:"/wap/consultationInfo/add",
+            type:"post",
+            dataType: 'json',
+            contentType: 'application/json',
+            data:JSON.stringify({
+                "memberName":$('#name').val(),
+                "memberPhone":$('#phone').val(),
+                "memberSex":$('#sex').val(),
+                "marriage":$('#marriage').val(),
+                "childNum":$('#childNum').val(),
+                "conId":$('#conId').val(),
+                "context":$('#context').val(),
+                "ctype":$('#testValue').val()
+            }),
+            success:function (e) {
+                alert("提交成功,请添加导师VX");
+                window.location.href = "/wap/daoshi?id="+e.data;
+            }
+        })
+
+
+    });
+</script>
+
+</body>
+</html>

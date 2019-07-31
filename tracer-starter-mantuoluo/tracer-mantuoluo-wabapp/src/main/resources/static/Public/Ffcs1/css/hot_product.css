@@ -1,0 +1,46 @@
+.cesuan .swiper-slide img{
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+    padding: 0.3rem 0 0.1rem 0;
+    height: auto;
+}
+.hot_product .swiper-slide {
+    float: left;
+    margin-bottom: 10%;
+    box-sizing: border-box;
+}
+
+.hot_product .swiper-slide a,.hot_product .swiper-slide p{
+    width: 94%;
+    margin: 0px 3%;
+    display: block;
+    text-align: center;
+}
+.cesuan{
+    position: relative;
+    overflow: hidden;
+    padding: 5px 0.1rem;}
+
+.cesuan_title{
+    width: 5.6rem;
+    margin: 0 auto;
+}
+.cesuan_title img{
+   width: 5.16rem;
+   margin-top: 0.2rem;
+}
+.ce_product{
+    text-align: center;
+    margin: 10px 0 5px;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    background:rgba(255,255,255,1);
+}
+.swiper-slide{
+    margin-bottom: 0.5rem;
+}
+.swiper-pagination-bullet-active{
+    background:rgba(238,63,77,1);
+}

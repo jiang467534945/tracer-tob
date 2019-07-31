@@ -1,0 +1,85 @@
+.hot_blck.zhegai{
+    position: fixed;
+    width: 100%;
+    bottom: 1rem;
+    z-index: 99;
+    background-color: rgba(1,1,1,0.6);
+    top: 0px;
+    max-width: 640px;
+    display: none;
+}
+.hot_blck{
+    display: none;
+    top: 44px;
+    width: 7.5rem;
+    position: fixed;
+    z-index: 100;
+    background: rgb(255,255,255);
+    padding-bottom: 0.4rem;
+
+}
+
+.hot_show{
+    width: 1.4rem;
+    margin: 0.4rem 0.5rem 0.4rem 0.6rem;
+    display: block;
+    float: left;
+    text-align: center;
+    margin-bottom: 0;
+}
+.hot_blck img{
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    padding-bottom: 0.1rem;
+}
+
+.his_order a{
+    writing-mode: vertical-lr;/*从左向右 从右向左是 writing-mode: vertical-rl;*/
+    writing-mode: tb-lr;/*IE浏览器的从左向右 从右向左是 writing-mode: tb-rl；*/
+    font-size:0.24rem;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    line-height: 0.6rem;
+    padding-top: 0.3rem;
+
+}
+.cesuan_btn{
+    position: absolute;
+    display: block;
+    color: #EE3F4D;
+    right: 0.3rem;
+   top:0;
+}
+.page_header{
+    line-height: 40px;
+}
+.cesuan_btn img{
+    height:18px;
+}
+.zhezhu{
+    display: none;
+    position: fixed;
+    width: 100%;
+    bottom: 1rem;
+    z-index: 99;
+    background-color: rgba(1,1,1,0.6);
+    top: 0px;
+    max-width: 640px;
+    height: 100vh;
+}
+.xuanfu{
+    position: fixed !important;
+    z-index: 99;
+    width: 7.5rem;
+}
+.hot_show p{
+    font-size: 0.32rem;
+}
+.header_fankui{
+    line-height: 20px;
+    right: 1rem !important;
+    top: 0.15rem;
+}
